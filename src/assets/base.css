@@ -6,14 +6,17 @@
 
 html {
   height: 100vh;
-  min-height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
-body,
-#app {
+body {
   height: 100%;
   width: 100%;
+}
+
+#app {
+  width: 100%;
+  overflow-y: auto;
 }
 
 a {
