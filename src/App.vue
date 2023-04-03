@@ -1,5 +1,5 @@
 <script>
-import CatalogView from './components/CatalogView.vue';
+import CatalogView from './views/CatalogView.vue';
 import TheHeader from './components/TheHeader.vue';
 
 export default {
