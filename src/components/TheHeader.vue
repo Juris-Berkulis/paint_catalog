@@ -1,0 +1,90 @@
+<script>
+export default {
+
+}
+</script>
+
+<template>
+<div class="header">
+    <div class="header__Logo">
+        <p class="header__LogoText">Colors</p>
+        <div class="header__LogoIcon"></div>
+    </div>
+    <div class="header__Main">
+        <div class="header__MainNav">
+            <a class="header__MainNavLink" href="#">Продукты</a>
+            <a class="header__MainNavLink" href="#">Цвета</a>
+            <a class="header__MainNavLink" href="#">Вдохновение</a>
+            <a class="header__MainNavLink" href="#">Советы</a>
+            <a class="header__MainNavLink" href="#">Найти магазин</a>
+        </div>
+        <div class="header__MainTel">
+            <p class="header__MainTelContent">
+                <a class="header__MainTelContentLink" href="tel:+74952217769">+7 (495) 221-77-69</a>
+            </p>
+            <p class="header__MainTelDescription">Заказать звонок</p>
+        </div>
+    </div>
+    <div class="header__BtnsPanel">
+        <button class="header__Btn">Ик</button>
+        <button class="header__Btn">Ик</button>
+        <button class="header__Btn">Ик</button>
+        <button class="header__Btn">Ик</button>
+    </div>
+</div>
+</template>
+
+<style scoped>
+.header {
+    height: 104px;
+    width: 100%;
+    padding: 0 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1F2020;
+    background-color: #ffffff;
+}
+
+.header__Logo {
+    display: flex;
+}
+
+.header__LogoText {
+    font-family: 'TT Hoves';
+    font-weight: 400;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.header__LogoIcon {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #1F2020;
+}
+
+.header__Main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__MainNavLink {
+    margin-right: 24px;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.header__MainTelContentLink {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+}
+
+.header__MainTelDescription {
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 0.3;
+}
+</style>
