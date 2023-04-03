@@ -1,21 +1,26 @@
 <script>
 import CatalogView from './views/CatalogView.vue';
 import TheHeader from './components/TheHeader.vue';
+import TheFooter from './components/TheFooter.vue';
 
 export default {
   components: {
     CatalogView,
     TheHeader,
-},
+    TheFooter,
+  },
 }
 </script>
 
 <template>
 <div class="app">
-  <TheHeader></TheHeader>
-  <div class="page">
-    <CatalogView></CatalogView>
+  <div class="up">
+    <TheHeader></TheHeader>
+    <div class="page">
+      <CatalogView></CatalogView>
+    </div>
   </div>
+  <TheFooter></TheFooter>
 </div>
 </template>
 
@@ -23,6 +28,16 @@ export default {
 .app {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-family: 'Inter';
+}
+
+.up {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 </style>
