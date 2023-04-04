@@ -28,8 +28,9 @@ export default {
 
 <template>
 <div class="productsSort">
-    <div class="productsSort__Selected">
-        <p class="productsSort__SelectedText" @click="(event) => setIsShowSortOptions(true)">{{ selectedSort.name }}</p>
+    <div class="productsSort__Selected" @click="(event) => setIsShowSortOptions(true)">
+        <p class="productsSort__SelectedText">{{ selectedSort.name }}</p>
+        <iconExpandList></iconExpandList>
     </div>
     <div class="productsSort__List" v-if="isShowSortOptions">
         <div class="productsSort__ListItem" v-for="sortOption in sortOptions" :key="sortOptions.name" @click="(event) => clickSortOption(sortOption)">
@@ -47,10 +48,12 @@ export default {
 
 .productsSort__Selected {
     display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
 .productsSort__SelectedText {
+    margin-right: 5px;
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;

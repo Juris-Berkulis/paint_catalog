@@ -1,5 +1,5 @@
 import BaseSlider from '@/components/UI/BaseSlider.vue';
 
-export const components = [
+export const componentsBase = [
     BaseSlider,
 ];

@@ -1,5 +1,4 @@
 <script>
-import IconArrow from '../icon/IconArrow.vue';
 
 export default {
     name: 'BaseSlider',
@@ -19,9 +18,6 @@ export default {
         nextPage: {
             type: Function,
         },
-    },
-    components: {
-        IconArrow,
     },
 }
 </script>

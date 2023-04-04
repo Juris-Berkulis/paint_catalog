@@ -1,3 +1,9 @@
+<script>
+export default {
+    name: 'IconArrow',
+}
+</script>
+
 <template>
 <div class="iconArrow">
     <svg width="22" height="42" viewBox="0 0 22 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -6,7 +12,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .iconArrow {
     fill: #ffffff;
     opacity: 0.3;
