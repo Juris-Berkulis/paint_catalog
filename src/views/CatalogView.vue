@@ -71,7 +71,7 @@ export default {
     <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
     <div class="catalogView__main">
         <div class="catalogView__mainHead">
-            <p>{{ productsDataFilteredAndSorted.length }} товаров</p>
+            <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSorted.length }} товаров</p>
             <ProductsSort v-bind:selectedSort="selectedSort" v-bind:sortOptions="sortOptions" v-bind:selectSortOption="selectSortOption" v-bind:isShowSortOptions="isShowSortOptions" v-bind:setIsShowSortOptions="setIsShowSortOptions"></ProductsSort>
         </div>
         <ProductsList v-bind:productsData="productsDataFilteredAndSorted"></ProductsList>
@@ -92,5 +92,14 @@ export default {
 .catalogView__mainHead {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 44px;
+}
+
+.catalogView__mainHeadCount {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 </style>

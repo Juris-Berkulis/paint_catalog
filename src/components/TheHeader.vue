@@ -54,12 +54,14 @@ export default {
     font-family: 'TT Hoves';
     font-weight: 400;
     font-size: 30px;
+    line-height: 30px;
     text-transform: uppercase;
 }
 
 .header__LogoIcon {
     height: 8px;
     width: 8px;
+    margin-top: 4px;
     border-radius: 50%;
     background-color: #1F2020;
 }
@@ -67,6 +69,7 @@ export default {
 .header__Main {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .header__MainNavLink {
