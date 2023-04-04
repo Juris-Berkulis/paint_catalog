@@ -29,6 +29,15 @@ export default {
             this.isShowSortOptions = boolean;
         },
     },
+    computed: {
+        productsDataSorted () {
+            return [...productsData].sort((product1, product2) => {
+                const directionSort = this.selectedSort.isReversed ? -1 : 1;
+
+                return directionSort * (product1[this.selectedSort.value] - product2[this.selectedSort.value])
+            })
+        },
+    },
 }
 </script>
 
@@ -42,7 +51,7 @@ export default {
             <p>412 товаров</p>
             <ProductsSort v-bind:selectedSort="selectedSort" v-bind:sortOptions="sortOptions" v-bind:selectSortOption="selectSortOption" v-bind:isShowSortOptions="isShowSortOptions" v-bind:setIsShowSortOptions="setIsShowSortOptions"></ProductsSort>
         </div>
-        <ProductsList v-bind:productsData="productsData"></ProductsList>
+        <ProductsList v-bind:productsData="productsDataSorted"></ProductsList>
     </div>
 </div>
 </template>
