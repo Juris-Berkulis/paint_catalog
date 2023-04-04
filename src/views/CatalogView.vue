@@ -48,6 +48,20 @@ export default {
         setCurrentPage (page) {
             this.currentPage = page;
         },
+        previousPage () {
+            if (this.currentPage === 1) {
+                this.currentPage = sliderData.length;
+            } else {
+                this.currentPage--;
+            }
+        },
+        nextPage () {
+            if (this.currentPage === sliderData.length) {
+                this.currentPage = 1;
+            } else {
+                this.currentPage++;
+            }
+        },
     },
     computed: {
         productsDataFiltered () {
@@ -74,7 +88,7 @@ export default {
 
 <template>
 <div class="catalogView">
-    <BaseSlider v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage"></BaseSlider>
+    <BaseSlider v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage" v-bind:previousPage="previousPage" v-bind:nextPage="nextPage"></BaseSlider>
     <div class="catalogView__root">
         <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
         <div class="catalogView__main">
@@ -92,7 +106,7 @@ export default {
 .catalogView__root {
     display: flex;
     justify-content: space-between;
-    padding: 0 64px;
+    padding: 72px 64px 141px;
 }
 
 .catalogView__main {

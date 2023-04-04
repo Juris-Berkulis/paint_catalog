@@ -1,5 +1,5 @@
 <script>
-import { transform } from '@vue/compiler-core';
+import IconArrow from '../icon/IconArrow.vue';
 
 export default {
     name: 'BaseSlider',
@@ -13,6 +13,15 @@ export default {
         setCurrentPage: {
             type: Function,
         },
+        previousPage: {
+            type: Function,
+        },
+        nextPage: {
+            type: Function,
+        },
+    },
+    components: {
+        IconArrow,
     },
 }
 </script>
@@ -30,6 +39,12 @@ export default {
     </div>
     <div class="slider__pageWrapper">
         <div :class="`slider__page ${page === currentPage && 'slider__page__current'}`" v-for="page in sliderData.length" :key="page" @click="(event) => setCurrentPage(page)"></div>
+    </div>
+    <div class="slider__arrow slider__arrow__previous" @click="(event) => previousPage()">
+        <IconArrow></IconArrow>
+    </div>
+    <div class="slider__arrow slider__arrow__next" @click="(event) => nextPage()">
+        <IconArrow></IconArrow>
     </div>
 </div>
 </template>
@@ -65,6 +80,7 @@ export default {
     margin-bottom: 24px;
     font-weight: 400;
     font-size: 72px;
+    line-height: 72px;
     letter-spacing: -0.02em;
     color: #FFFFFF;
     text-align: center;
@@ -105,5 +121,20 @@ export default {
 
 .slider__page__current {
     opacity: 1;
+}
+
+.slider__arrow {
+    position: absolute;
+    bottom: 30%;
+    cursor: pointer;
+}
+
+.slider__arrow__previous {
+    left: 22%;
+    transform: rotateZ(180deg);
+}
+
+.slider__arrow__next {
+    right: 22%;
 }
 </style>
