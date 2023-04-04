@@ -41,8 +41,4 @@ export default {
   display: flex;
   flex-direction: column;
 }
-
-.page {
-  padding: 0 64px;
-}
 </style>

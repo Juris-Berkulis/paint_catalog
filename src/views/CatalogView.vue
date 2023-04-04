@@ -3,6 +3,7 @@ import ProductsFilter from '../components/ProductsFilter.vue';
 import ProductsSort from '../components/ProductsSort.vue';
 import ProductsList from '../components/productsList.vue';
 import {productsData} from '../data/productsData';
+import {sliderData} from '../data/sliderData';
 
 export default {
     components: { 
@@ -28,6 +29,8 @@ export default {
                 {value: 'isExclusiveProduct', name: 'Эксклюзивные', isTurnedOn: false},
                 {value: 'isDiscount', name: 'Распродажа', isTurnedOn: false},
             ],
+            sliderData: sliderData,
+            currentPage: 1,
         }
     },
     methods: {
@@ -41,6 +44,9 @@ export default {
             const index = this.filterOptions.indexOf(filterOption);
 
             this.filterOptions[index].isTurnedOn = !filterOption.isTurnedOn;
+        },
+        setCurrentPage (page) {
+            this.currentPage = page;
         },
     },
     computed: {
@@ -68,21 +74,25 @@ export default {
 
 <template>
 <div class="catalogView">
-    <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
-    <div class="catalogView__main">
-        <div class="catalogView__mainHead">
-            <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSorted.length }} товаров</p>
-            <ProductsSort v-bind:selectedSort="selectedSort" v-bind:sortOptions="sortOptions" v-bind:selectSortOption="selectSortOption" v-bind:isShowSortOptions="isShowSortOptions" v-bind:setIsShowSortOptions="setIsShowSortOptions"></ProductsSort>
+    <BaseSlider v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage"></BaseSlider>
+    <div class="catalogView__root">
+        <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
+        <div class="catalogView__main">
+            <div class="catalogView__mainHead">
+                <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSorted.length }} товаров</p>
+                <ProductsSort v-bind:selectedSort="selectedSort" v-bind:sortOptions="sortOptions" v-bind:selectSortOption="selectSortOption" v-bind:isShowSortOptions="isShowSortOptions" v-bind:setIsShowSortOptions="setIsShowSortOptions"></ProductsSort>
+            </div>
+            <ProductsList v-bind:productsData="productsDataFilteredAndSorted"></ProductsList>
         </div>
-        <ProductsList v-bind:productsData="productsDataFilteredAndSorted"></ProductsList>
     </div>
 </div>
 </template>
 
 <style scoped>
-.catalogView {
+.catalogView__root {
     display: flex;
     justify-content: space-between;
+    padding: 0 64px;
 }
 
 .catalogView__main {
