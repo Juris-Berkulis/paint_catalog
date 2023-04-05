@@ -24,6 +24,9 @@ export default {
         markProductForRemovalOrReturn: {
             type: Function,
         },
+        clearProductsListInCart: {
+            type: Function,
+        },
     },
     computed: {
         totalProductsSumInCart () {
@@ -49,9 +52,10 @@ export default {
         </div>
         <div class="productsCart__additionally">
             <p class="productsCart__additionallyCount">{{ totalProductsCountInCart }} товаров</p>
-            <button class="productsCart__additionallyDelBtn">Очистить список</button>
+            <button class="productsCart__additionallyDelBtn" :disabled="!productsListInCart.length" @click="(event) => clearProductsListInCart()">Очистить список</button>
         </div>
-        <ProductsCartList v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"></ProductsCartList>
+        <ProductsCartList v-if="productsListInCart.length" v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"></ProductsCartList>
+        <p class="productsCart__cartIsEmptyText" v-else>Корзина пуста</p>
     </div>
     <div class="productsCart__bottom">
         <div class="productsCart__total">
@@ -116,6 +120,22 @@ export default {
     opacity: 0.4;
     border: none;
     background-color: transparent;
+}
+
+.productsCart__additionallyDelBtn:hover {
+    opacity: 0.8;
+}
+
+.productsCart__additionallyDelBtn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.productsCart__cartIsEmptyText {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    text-align: center;
 }
 
 .productsCart__bottom {
