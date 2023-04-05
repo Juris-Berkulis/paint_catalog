@@ -28,12 +28,12 @@ export default {
     computed: {
         totalProductsSumInCart () {
             return this.productsListInCart.reduce((acc, currentProduct) => {
-                return acc + currentProduct.price * currentProduct.count
+                return !currentProduct.isMarkProductForRemoval ? acc + currentProduct.price * currentProduct.count : acc
             }, 0)
         },
         totalProductsCountInCart () {
             return this.productsListInCart.reduce((acc, currentProduct) => {
-                return acc + currentProduct.count
+                return !currentProduct.isMarkProductForRemoval ? acc + currentProduct.count : acc
             }, 0)
         },
     },
