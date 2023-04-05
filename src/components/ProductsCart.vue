@@ -48,7 +48,9 @@ export default {
     <div class="productsCart__up">
         <div class="productsCart__head">
             <p class="productsCart__headTitle">Корзина</p>
-            <button @click="(event) => setIsShowProductsCart(false)">x</button>
+            <div class="productsCart__headCloseBtn" @click="(event) => setIsShowProductsCart(false)">
+                <IconCross></IconCross>
+            </div>
         </div>
         <div class="productsCart__additionally">
             <p class="productsCart__additionallyCount">{{ totalProductsCountInCart }} товаров</p>
@@ -98,6 +100,22 @@ export default {
     font-size: 30px;
     line-height: 30px;
     letter-spacing: -0.04em;
+}
+
+.productsCart__headCloseBtn {
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e6e6e6;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.productsCart__headCloseBtn:hover {
+    border: 1px solid #000000;
+    opacity: 0.5;
 }
 
 .productsCart__additionally {

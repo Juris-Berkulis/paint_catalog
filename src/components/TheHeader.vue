@@ -4,6 +4,9 @@ export default {
         setIsShowProductsCart: {
             type: Function,
         },
+        totalProductsCountInCart: {
+            type: Number,
+        },
     },
 }
 </script>
@@ -30,10 +33,16 @@ export default {
         </div>
     </div>
     <div class="header__BtnsPanel">
-        <button class="header__Btn">Ик</button>
-        <button class="header__Btn">Ик</button>
-        <button class="header__Btn">Ик</button>
-        <button class="header__Btn" @click="(event) => setIsShowProductsCart(true)">Ик</button>
+        <div class="header__Btn">
+            <IconSearch></IconSearch>
+        </div>
+        <div class="header__Btn">
+            <IconProfile></IconProfile>
+        </div>
+        <div class="header__Btn">
+            <IconLike></IconLike>
+        </div>
+        <div class="header__Btn header__Btn__Cart" @click="(event) => setIsShowProductsCart(true)">{{ totalProductsCountInCart }}</div>
     </div>
 </div>
 </template>
@@ -93,5 +102,38 @@ export default {
     font-weight: 400;
     font-size: 14px;
     opacity: 0.3;
+}
+
+.header__BtnsPanel {
+    display: flex;
+}
+
+.header__Btn {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 24px;
+    cursor: pointer;
+}
+
+.header__Btn:last-child {
+    margin: 0;
+}
+
+.header__Btn__Cart {
+    border-radius: 50%;
+    background-color: #7BB899;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    opacity: 1;
+}
+
+.header__Btn__Cart:hover {
+    opacity: 0.9;
 }
 </style>

@@ -61,11 +61,16 @@ export default {
     width: 80px;
     height: 32px;
     background: #7BB899;
+    border: none;
     border-radius: 8px;
 }
 
 .productsListItem:hover .productsListItem__btn {
     opacity: 1;
+}
+
+.productsListItem:hover .productsListItem__btn:hover {
+    opacity: 0.9;
 }
 
 .productsListItem__btnIcon {

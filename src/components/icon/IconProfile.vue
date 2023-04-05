@@ -21,5 +21,9 @@ export default {
 </template>
 
 <style scoped>
-
+.iconProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>

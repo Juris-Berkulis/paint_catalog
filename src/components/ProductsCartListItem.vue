@@ -45,8 +45,12 @@ export default {
                 <div :class="['productsCartListItem__panelBtnIconVertical', {'productsCartListItem__panelBtnIconVertical__forRemoval': isMarkProductForRemoval}]"></div>
             </button>
         </div>
-        <button class="productsCartListItem__productDelBtn" v-if="!isMarkProductForRemoval" @click="(event) => markProductForRemovalOrReturn(productInCart, true)">x</button>
-        <button class="productsCartListItem__productDelBtn" v-else @click="(event) => markProductForRemovalOrReturn(productInCart, false)">o</button>
+        <div class="productsCartListItem__productDelBtn productsCartListItem__productDelBtn__delete" v-if="!isMarkProductForRemoval" @click="(event) => markProductForRemovalOrReturn(productInCart, true)">
+            <IconCross></IconCross>
+        </div>
+        <div class="productsCartListItem__productDelBtn productsCartListItem__productDelBtn__return" v-else @click="(event) => markProductForRemovalOrReturn(productInCart, false)">
+            <IconReturn></IconReturn>
+        </div>
     </div>
 </div>
 </template>
@@ -173,5 +177,30 @@ export default {
 
 .productsCartListItem__btnsPanelCount__forRemoval {
     opacity: 0.2;
+}
+
+.productsCartListItem__productDelBtn {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.productsCartListItem__productDelBtn__delete {
+    opacity: 0.2;
+}
+
+.productsCartListItem__productDelBtn__delete:hover {
+    opacity: 0.7;
+}
+
+.productsCartListItem__productDelBtn__return {
+    opacity: 1;
+}
+
+.productsCartListItem__productDelBtn__return:hover {
+    opacity: 0.7;
 }
 </style>

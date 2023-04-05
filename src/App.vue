@@ -17,6 +17,13 @@ export default {
       productsListInCart: [],
     }
   },
+  computed: {
+    totalProductsCountInCart () {
+      return this.productsListInCart.reduce((acc, currentProduct) => {
+        return !currentProduct.isMarkProductForRemoval ? acc + currentProduct.count : acc
+      }, 0)
+    },
+  },
   methods: {
     setIsShowProductsCart (boolean) {
       this.isShowProductsCart = boolean;
@@ -77,7 +84,11 @@ export default {
     },
   },
   mounted() {
-    this.productsListInCart = JSON.parse(localStorage.getItem('productsListInCart'));
+    const productsList = JSON.parse(localStorage.getItem('productsListInCart'));
+    
+    if (productsList) {
+      this.productsListInCart = productsList;
+    }
   },
 }
 </script>
@@ -85,7 +96,7 @@ export default {
 <template>
 <div class="app">
   <div class="up">
-    <TheHeader v-bind:setIsShowProductsCart="setIsShowProductsCart"></TheHeader>
+    <TheHeader v-bind:setIsShowProductsCart="setIsShowProductsCart" v-bind:totalProductsCountInCart="totalProductsCountInCart"></TheHeader>
     <div class="page">
       <CatalogView v-bind:addProductInCart="addProductInCart"></CatalogView>
     </div>

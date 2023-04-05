@@ -16,5 +16,9 @@ export default {
 </template>
 
 <style scoped>
-
+.iconReturn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>

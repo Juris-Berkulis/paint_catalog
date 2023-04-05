@@ -13,5 +13,9 @@ export default {
 </template>
 
 <style scoped>
-
+.iconLike {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>

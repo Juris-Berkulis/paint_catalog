@@ -14,5 +14,9 @@ export default {
 </template>
 
 <style scoped>
-
+.iconCross {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>
