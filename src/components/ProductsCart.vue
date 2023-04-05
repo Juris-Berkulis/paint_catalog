@@ -1,11 +1,26 @@
 <script>
+import ProductsCartList from './ProductsCartList.vue';
+
 export default {
+    components: {
+        ProductsCartList,
+    },
     props: {
         isShowProductsCart: {
             type: Boolean,
         },
         setIsShowProductsCart: {
             type: Function,
+        },
+        productsListInCart: {
+            type: Function,
+        },
+    },
+    computed: {
+        totalProductsSumInCart () {
+            return this.productsListInCart.reduce((acc, currentProduct) => {
+                return acc + currentProduct.price * currentProduct.count
+            }, 0)
         },
     },
 }
@@ -22,30 +37,12 @@ export default {
             <p class="productsCart__additionallyCount">4 товара</p>
             <button class="productsCart__additionallyDelBtn">Очистить список</button>
         </div>
-        <div class="productsCart__list">
-            <div class="productsCart__listItem">
-                <div>
-                    <img src="" alt="">
-                    <div>
-                        <p></p>
-                        <p></p>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <button></button>
-                        <p></p>
-                        <button></button>
-                    </div>
-                    <button></button>
-                </div>
-            </div>
-        </div>
+        <ProductsCartList v-bind:productsListInCart="productsListInCart"></ProductsCartList>
     </div>
     <div class="productsCart__bottom">
         <div class="productsCart__total">
             <p class="productsCart__totalText">Итого</p>
-            <p class="productsCart__totalPrice">14 400₽</p>
+            <p class="productsCart__totalPrice">{{ totalProductsSumInCart }}₽</p>
         </div>
         <button class="productsCart__placeOrderBtn">Оформить заказ</button>
     </div>
@@ -65,6 +62,10 @@ export default {
     padding: 32px 40px 40px;
     background-color: #ffffff;
     z-index: 2;
+}
+
+.productsCart__up {
+    height: calc(100% - 95px);
 }
 
 .productsCart__head {
@@ -107,6 +108,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    padding-top: 40px;
 }
 
 .productsCart__totalText {
