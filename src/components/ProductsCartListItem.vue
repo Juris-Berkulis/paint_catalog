@@ -16,6 +16,7 @@ export default {
 
 <template>
 <div class="productsCartListItem">
+    <div class="productsCartListItem__line"></div>
     <div class="productsCartListItem__left">
         <img class="productsCartListItem__img" :src="`../../img/products/${productInCart.id}.png`" alt="photo">
         <div class="productsCartListItem__description">
@@ -41,10 +42,22 @@ export default {
 
 <style scoped>
 .productsCartListItem {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 12px 0;
+}
+
+.productsCartListItem__line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #000000;
+    opacity: 0.1;
 }
 
 .productsCartListItem__left {
