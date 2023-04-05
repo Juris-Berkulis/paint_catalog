@@ -1,6 +1,10 @@
 <script>
 export default {
-
+    props: {
+        setIsShowProductsCart: {
+            type: Function,
+        },
+    },
 }
 </script>
 
@@ -29,7 +33,7 @@ export default {
         <button class="header__Btn">Ик</button>
         <button class="header__Btn">Ик</button>
         <button class="header__Btn">Ик</button>
-        <button class="header__Btn">Ик</button>
+        <button class="header__Btn" @click="(event) => setIsShowProductsCart(true)">Ик</button>
     </div>
 </div>
 </template>

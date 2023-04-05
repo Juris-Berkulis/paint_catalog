@@ -1,0 +1,142 @@
+<script>
+export default {
+    props: {
+        isShowProductsCart: {
+            type: Boolean,
+        },
+        setIsShowProductsCart: {
+            type: Function,
+        },
+    },
+}
+</script>
+
+<template>
+<div class="productsCart" v-if="isShowProductsCart">
+    <div class="productsCart__up">
+        <div class="productsCart__head">
+            <p class="productsCart__headTitle">Корзина</p>
+            <button @click="(event) => setIsShowProductsCart(false)">x</button>
+        </div>
+        <div class="productsCart__additionally">
+            <p class="productsCart__additionallyCount">4 товара</p>
+            <button class="productsCart__additionallyDelBtn">Очистить список</button>
+        </div>
+        <div class="productsCart__list">
+            <div class="productsCart__listItem">
+                <div>
+                    <img src="" alt="">
+                    <div>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <button></button>
+                        <p></p>
+                        <button></button>
+                    </div>
+                    <button></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="productsCart__bottom">
+        <div class="productsCart__total">
+            <p class="productsCart__totalText">Итого</p>
+            <p class="productsCart__totalPrice">14 400₽</p>
+        </div>
+        <button class="productsCart__placeOrderBtn">Оформить заказ</button>
+    </div>
+</div>
+</template>
+
+<style scoped>
+.productsCart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 40px 40px;
+    background-color: #ffffff;
+    z-index: 2;
+}
+
+.productsCart__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.productsCart__headTitle {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: -0.04em;
+}
+
+.productsCart__additionally {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.productsCart__additionallyCount {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 112%;
+}
+
+.productsCart__additionallyDelBtn {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 112%;
+    opacity: 0.4;
+    border: none;
+    background-color: transparent;
+}
+
+.productsCart__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.productsCart__totalText {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+.productsCart__totalPrice {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+}
+
+.productsCart__placeOrderBtn {
+    padding: 20px 57px;
+    background: #7BB899;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.productsCart__placeOrderBtn:hover {
+    opacity: 0.9;
+}
+</style>

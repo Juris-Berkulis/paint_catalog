@@ -2,12 +2,24 @@
 import CatalogView from './views/CatalogView.vue';
 import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
+import ProductsCart from './components/ProductsCart.vue';
 
 export default {
   components: {
     CatalogView,
     TheHeader,
     TheFooter,
+    ProductsCart,
+  },
+  data() {
+    return {
+      isShowProductsCart: false,
+    }
+  },
+  methods: {
+    setIsShowProductsCart (boolean) {
+      this.isShowProductsCart = boolean;
+    },
   },
 }
 </script>
@@ -15,12 +27,14 @@ export default {
 <template>
 <div class="app">
   <div class="up">
-    <TheHeader></TheHeader>
+    <TheHeader v-bind:setIsShowProductsCart="setIsShowProductsCart"></TheHeader>
     <div class="page">
       <CatalogView></CatalogView>
     </div>
   </div>
   <TheFooter></TheFooter>
+  <ProductsCart v-bind:isShowProductsCart="isShowProductsCart" v-bind:setIsShowProductsCart="setIsShowProductsCart"></ProductsCart>
+  <BaseCloseField v-bind:isShowCloseField="isShowProductsCart" v-bind:setIsShowCloseField="setIsShowProductsCart"></BaseCloseField>
 </div>
 </template>
 
