@@ -4,7 +4,10 @@ import ProductsListItem from './ProductsListItem.vue';
 export default {
     props: {
         productsData: {
-            tipe: Array,
+            type: Array,
+        },
+        addProductInCart: {
+            type: Function,
         },
     },
     components: { 
@@ -15,7 +18,7 @@ export default {
 
 <template>
 <div class="productsList">
-    <ProductsListItem v-for="product in productsData" v-bind:product="product" :key="product.id"></ProductsListItem>
+    <ProductsListItem v-for="product in productsData" v-bind:product="product" :key="product.id" v-bind:addProductInCart="addProductInCart"></ProductsListItem>
 </div>
 </template>
 

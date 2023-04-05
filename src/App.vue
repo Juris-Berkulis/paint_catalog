@@ -14,11 +14,22 @@ export default {
   data() {
     return {
       isShowProductsCart: false,
+      productsListInCart: [],
     }
   },
   methods: {
     setIsShowProductsCart (boolean) {
       this.isShowProductsCart = boolean;
+    },
+    addProductInCart (product) {
+      for (let productIndexInCart=0; productIndexInCart < this.productsListInCart.length; productIndexInCart++) {
+        if (this.productsListInCart[productIndexInCart].id === product.id) {
+          this.productsListInCart[productIndexInCart].count++;
+          return
+        }
+      }
+
+      this.productsListInCart.push({...product, count: 1});
     },
   },
 }
@@ -29,7 +40,7 @@ export default {
   <div class="up">
     <TheHeader v-bind:setIsShowProductsCart="setIsShowProductsCart"></TheHeader>
     <div class="page">
-      <CatalogView></CatalogView>
+      <CatalogView v-bind:addProductInCart="addProductInCart"></CatalogView>
     </div>
   </div>
   <TheFooter></TheFooter>

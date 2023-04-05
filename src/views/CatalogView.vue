@@ -11,6 +11,11 @@ export default {
         ProductsSort,
         ProductsFilter,
     },
+    props: {
+        addProductInCart: {
+            type: Function,
+        },
+    },
     data() {
         return {
             productsData: productsData,
@@ -96,7 +101,7 @@ export default {
                 <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSorted.length }} товаров</p>
                 <ProductsSort v-bind:selectedSort="selectedSort" v-bind:sortOptions="sortOptions" v-bind:selectSortOption="selectSortOption" v-bind:isShowSortOptions="isShowSortOptions" v-bind:setIsShowSortOptions="setIsShowSortOptions"></ProductsSort>
             </div>
-            <ProductsList v-bind:productsData="productsDataFilteredAndSorted"></ProductsList>
+            <ProductsList v-bind:productsData="productsDataFilteredAndSorted" v-bind:addProductInCart="addProductInCart"></ProductsList>
         </div>
     </div>
 </div>

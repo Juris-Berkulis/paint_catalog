@@ -4,6 +4,9 @@ export default {
         product: {
             type: Object,
         },
+        addProductInCart: {
+            type: Function,
+        },
     },
 }
 </script>
@@ -14,7 +17,7 @@ export default {
         <p class="productsListItem__name">{{ product.name }}</p>
         <div class="productsListItem__additionally">
             <p class="productsListItem__price">{{ product.price }} ₽</p>
-            <button class="productsListItem__btn">
+            <button class="productsListItem__btn" @click="(event) => addProductInCart(product)">
                 <div class="productsListItem__btnIcon__vertical productsListItem__btnIcon"></div>
                 <div class="productsListItem__btnIcon__horizontal productsListItem__btnIcon"></div>
             </button>
