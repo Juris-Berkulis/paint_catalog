@@ -13,36 +13,36 @@ export default {
 
 <template>
 <div class="header">
-    <div class="header__Logo">
-        <p class="header__LogoText">Colors</p>
-        <div class="header__LogoIcon"></div>
+    <div class="header__logo">
+        <p class="header__logoText">Colors</p>
+        <div class="header__logoIcon"></div>
     </div>
-    <div class="header__Main">
-        <div class="header__MainNav">
-            <a class="header__MainNavLink" href="#">Продукты</a>
-            <a class="header__MainNavLink" href="#">Цвета</a>
-            <a class="header__MainNavLink" href="#">Вдохновение</a>
-            <a class="header__MainNavLink" href="#">Советы</a>
-            <a class="header__MainNavLink" href="#">Найти магазин</a>
+    <div class="header__main">
+        <div class="header__mainNav">
+            <a class="header__mainNavLink" href="#">Продукты</a>
+            <a class="header__mainNavLink" href="#">Цвета</a>
+            <a class="header__mainNavLink" href="#">Вдохновение</a>
+            <a class="header__mainNavLink" href="#">Советы</a>
+            <a class="header__mainNavLink" href="#">Найти магазин</a>
         </div>
-        <div class="header__MainTel">
-            <p class="header__MainTelContent">
-                <a class="header__MainTelContentLink" href="tel:+74952217769">+7 (495) 221-77-69</a>
+        <div class="header__mainTel">
+            <p class="header__mainTelContent">
+                <a class="header__mainTelContentLink" href="tel:+74952217769">+7 (495) 221-77-69</a>
             </p>
-            <p class="header__MainTelDescription">Заказать звонок</p>
+            <p class="header__mainTelDescription">Заказать звонок</p>
         </div>
     </div>
-    <div class="header__BtnsPanel">
-        <div class="header__Btn">
+    <div class="header__btnsPanel">
+        <div class="header__btn">
             <IconSearch></IconSearch>
         </div>
-        <div class="header__Btn">
+        <div class="header__btn">
             <IconProfile></IconProfile>
         </div>
-        <div class="header__Btn">
+        <div class="header__btn">
             <IconLike></IconLike>
         </div>
-        <div class="header__Btn header__Btn__Cart" @click="(event) => setIsShowProductsCart(true)">{{ totalProductsCountInCart }}</div>
+        <div class="header__btn header__btn__cart" @click="(event) => setIsShowProductsCart(true)">{{ totalProductsCountInCart }}</div>
     </div>
 </div>
 </template>
@@ -59,11 +59,11 @@ export default {
     background-color: #ffffff;
 }
 
-.header__Logo {
+.header__logo {
     display: flex;
 }
 
-.header__LogoText {
+.header__logoText {
     font-family: 'TT Hoves';
     font-weight: 400;
     font-size: 30px;
@@ -71,7 +71,7 @@ export default {
     text-transform: uppercase;
 }
 
-.header__LogoIcon {
+.header__logoIcon {
     height: 8px;
     width: 8px;
     margin-top: 4px;
@@ -79,36 +79,36 @@ export default {
     background-color: #1F2020;
 }
 
-.header__Main {
+.header__main {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header__MainNavLink {
+.header__mainNavLink {
     margin-right: 24px;
     font-weight: 400;
     font-size: 14px;
     text-transform: uppercase;
 }
 
-.header__MainTelContentLink {
+.header__mainTelContentLink {
     font-weight: 500;
     font-size: 16px;
     letter-spacing: -0.02em;
 }
 
-.header__MainTelDescription {
+.header__mainTelDescription {
     font-weight: 400;
     font-size: 14px;
     opacity: 0.3;
 }
 
-.header__BtnsPanel {
+.header__btnsPanel {
     display: flex;
 }
 
-.header__Btn {
+.header__btn {
     height: 24px;
     width: 24px;
     display: flex;
@@ -118,11 +118,11 @@ export default {
     cursor: pointer;
 }
 
-.header__Btn:last-child {
+.header__btn:last-child {
     margin: 0;
 }
 
-.header__Btn__Cart {
+.header__btn__cart {
     border-radius: 50%;
     background-color: #7BB899;
     font-weight: 500;
@@ -133,7 +133,7 @@ export default {
     opacity: 1;
 }
 
-.header__Btn__Cart:hover {
+.header__btn__cart:hover {
     opacity: 0.9;
 }
 </style>

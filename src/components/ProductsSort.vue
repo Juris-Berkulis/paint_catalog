@@ -28,13 +28,13 @@ export default {
 
 <template>
 <div class="productsSort">
-    <div class="productsSort__Selected" @click="(event) => setIsShowSortOptions(true)">
-        <p class="productsSort__SelectedText">{{ selectedSort.name }}</p>
+    <div class="productsSort__selected" @click="(event) => setIsShowSortOptions(true)">
+        <p class="productsSort__selectedText">{{ selectedSort.name }}</p>
         <iconExpandList></iconExpandList>
     </div>
-    <div class="productsSort__List" v-if="isShowSortOptions">
-        <div class="productsSort__ListItem" v-for="sortOption in sortOptions" :key="sortOptions.name" @click="(event) => clickSortOption(sortOption)">
-            <p class="productsSort__ListItemText">{{ sortOption.name }}</p>
+    <div class="productsSort__list" v-if="isShowSortOptions">
+        <div class="productsSort__listItem" v-for="sortOption in sortOptions" :key="sortOptions.name" @click="(event) => clickSortOption(sortOption)">
+            <p class="productsSort__listItemText">{{ sortOption.name }}</p>
         </div>
     </div>
     <BaseCloseField v-bind:isShowCloseField="isShowSortOptions" v-bind:setIsShowCloseField="setIsShowSortOptions"></BaseCloseField>
@@ -46,13 +46,13 @@ export default {
     position: relative;
 }
 
-.productsSort__Selected {
+.productsSort__selected {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.productsSort__SelectedText {
+.productsSort__selectedText {
     margin-right: 5px;
     font-weight: 500;
     font-size: 12px;
@@ -61,7 +61,7 @@ export default {
     text-transform: uppercase;
 }
 
-.productsSort__List {
+.productsSort__list {
     position: absolute;
     top: 0;
     right: 0;
@@ -70,17 +70,17 @@ export default {
     z-index: 2;
 }
 
-.productsSort__ListItem {
+.productsSort__listItem {
     padding: 16px 24px;
     background-color: transparent;
     cursor: pointer;
 }
 
-.productsSort__ListItem:hover {
+.productsSort__listItem:hover {
     background-color: #7BB899;
 }
 
-.productsSort__ListItemText {
+.productsSort__listItemText {
     font-weight: 500;
     font-size: 12px;
     line-height: 12px;
