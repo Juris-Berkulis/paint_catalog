@@ -10,6 +10,14 @@ export default {
         decreaseProductsCountInCart: {
             type: Function,
         },
+        markProductForRemovalOrReturn: {
+            type: Function,
+        },
+    },
+    computed: {
+        isMarkProductForRemoval () {
+            return this.productInCart.isMarkProductForRemoval
+        },
     },
 }
 </script>
@@ -18,8 +26,10 @@ export default {
 <div class="productsCartListItem">
     <div class="productsCartListItem__line"></div>
     <div class="productsCartListItem__left">
-        <img class="productsCartListItem__img" :src="`../../img/products/${productInCart.id}.png`" alt="photo">
-        <div class="productsCartListItem__description">
+        <div :class="['productsCartListItem__imgWrapper', {'productsCartListItem__imgWrapper__forRemoval': isMarkProductForRemoval}]">
+            <img class="productsCartListItem__img" :src="`../../img/products/${productInCart.id}.png`" alt="photo">
+        </div>
+        <div :class="['productsCartListItem__description', {'productsCartListItem__description__forRemoval': isMarkProductForRemoval}]">
             <p class="productsCartListItem__descriptionName">{{ productInCart.name }}</p>
             <p class="productsCartListItem__descriptionSum">{{ productInCart.price * productInCart.count }} ₽</p>
         </div>
@@ -27,15 +37,16 @@ export default {
     <div class="productsCartListItem__right">
         <div class="productsCartListItem__btnsPanel">
             <button class="productsCartListItem__panelBtn" @click="(event) => decreaseProductsCountInCart(productInCart)">
-                <div class="productsCartListItem__panelBtnIconHorizontal"></div>
+                <div :class="['productsCartListItem__panelBtnIconHorizontal', {'productsCartListItem__panelBtnIconHorizontal__forRemoval': isMarkProductForRemoval}]"></div>
             </button>
-            <p class="productsCartListItem__btnsPanelCount">{{ productInCart.count }}</p>
+            <p :class="['productsCartListItem__btnsPanelCount', {'productsCartListItem__btnsPanelCount__forRemoval': isMarkProductForRemoval}]">{{ productInCart.count }}</p>
             <button class="productsCartListItem__panelBtn" @click="(event) => increaseProductsCountInCart(productInCart)">
-                <div class="productsCartListItem__panelBtnIconHorizontal"></div>
-                <div class="productsCartListItem__panelBtnIconVertical"></div>
+                <div :class="['productsCartListItem__panelBtnIconHorizontal', {'productsCartListItem__panelBtnIconHorizontal__forRemoval': isMarkProductForRemoval}]"></div>
+                <div :class="['productsCartListItem__panelBtnIconVertical', {'productsCartListItem__panelBtnIconVertical__forRemoval': isMarkProductForRemoval}]"></div>
             </button>
         </div>
-        <button class="productsCartListItem__productDelBtn">x</button>
+        <button class="productsCartListItem__productDelBtn" v-if="!isMarkProductForRemoval" @click="(event) => markProductForRemovalOrReturn(productInCart, true)">x</button>
+        <button class="productsCartListItem__productDelBtn" v-else @click="(event) => markProductForRemovalOrReturn(productInCart, false)">o</button>
     </div>
 </div>
 </template>
@@ -67,9 +78,25 @@ export default {
     margin-right: 62px;
 }
 
+.productsCartListItem__imgWrapper {
+    margin-right: 8px;
+    opacity: 1;
+}
+
+.productsCartListItem__imgWrapper__forRemoval {
+    opacity: 0.4;
+}
+
 .productsCartListItem__img {
     width: 96px;
-    background-repeat: 8px;
+}
+
+.productsCartListItem__description {
+    opacity: 1;
+}
+
+.productsCartListItem__description__forRemoval {
+    opacity: 0.2;
 }
 
 .productsCartListItem__descriptionName {
@@ -118,6 +145,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #000000;
+    opacity: 1;
 }
 
 .productsCartListItem__panelBtnIconHorizontal {
@@ -130,10 +158,20 @@ export default {
     width: 1.4px;
 }
 
+.productsCartListItem__panelBtnIconHorizontal__forRemoval, 
+.productsCartListItem__panelBtnIconVertical__forRemoval {
+    opacity: 0.2;
+}
+
 .productsCartListItem__btnsPanelCount {
     padding: 0 17px;
     font-weight: 400;
     font-size: 16px;
     line-height: 100%;
+    opacity: 1;
+}
+
+.productsCartListItem__btnsPanelCount__forRemoval {
+    opacity: 0.2;
 }
 </style>

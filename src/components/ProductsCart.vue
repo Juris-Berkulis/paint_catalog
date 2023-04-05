@@ -21,6 +21,9 @@ export default {
         decreaseProductsCountInCart: {
             type: Function,
         },
+        markProductForRemovalOrReturn: {
+            type: Function,
+        },
     },
     computed: {
         totalProductsSumInCart () {
@@ -48,7 +51,7 @@ export default {
             <p class="productsCart__additionallyCount">{{ totalProductsCountInCart }} товаров</p>
             <button class="productsCart__additionallyDelBtn">Очистить список</button>
         </div>
-        <ProductsCartList v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart"></ProductsCartList>
+        <ProductsCartList v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"></ProductsCartList>
     </div>
     <div class="productsCart__bottom">
         <div class="productsCart__total">

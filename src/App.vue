@@ -47,6 +47,14 @@ export default {
         this.productsListInCart.push({...product, count: 1});
       }
     },
+    markProductForRemovalOrReturn (product, isMarkProductForRemoval) {
+      for (let productIndexInCart=0; productIndexInCart < this.productsListInCart.length; productIndexInCart++) {
+        if (this.productsListInCart[productIndexInCart].id === product.id) {
+          this.productsListInCart[productIndexInCart].isMarkProductForRemoval = isMarkProductForRemoval;
+          return
+        }
+      }
+    },
   },
 }
 </script>
@@ -60,7 +68,7 @@ export default {
     </div>
   </div>
   <TheFooter></TheFooter>
-  <ProductsCart v-bind:isShowProductsCart="isShowProductsCart" v-bind:setIsShowProductsCart="setIsShowProductsCart" v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart"></ProductsCart>
+  <ProductsCart v-bind:isShowProductsCart="isShowProductsCart" v-bind:setIsShowProductsCart="setIsShowProductsCart" v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"></ProductsCart>
   <BaseCloseField v-bind:isShowCloseField="isShowProductsCart" v-bind:setIsShowCloseField="setIsShowProductsCart"></BaseCloseField>
 </div>
 </template>
