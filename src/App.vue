@@ -20,6 +20,10 @@ export default {
   methods: {
     setIsShowProductsCart (boolean) {
       this.isShowProductsCart = boolean;
+
+      if (!boolean) {
+        this.deleteProductsMarkedForDeletion();
+      }
     },
     increaseProductsCountInCart (product) {
       for (let productIndexInCart=0; productIndexInCart < this.productsListInCart.length; productIndexInCart++) {
@@ -54,6 +58,11 @@ export default {
           return
         }
       }
+    },
+    deleteProductsMarkedForDeletion () {
+      this.productsListInCart = this.productsListInCart.filter(product => {
+        return !product.isMarkProductForRemoval
+      })
     },
   },
 }
