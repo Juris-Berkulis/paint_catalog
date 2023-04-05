@@ -68,6 +68,17 @@ export default {
       this.productsListInCart = [];
     },
   },
+  watch: {
+    productsListInCart: {
+      handler(value) {
+        localStorage.setItem('productsListInCart', JSON.stringify(value));
+      },
+      deep: true
+    },
+  },
+  mounted() {
+    this.productsListInCart = JSON.parse(localStorage.getItem('productsListInCart'));
+  },
 }
 </script>
 
