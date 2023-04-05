@@ -51,6 +51,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 62px;
 }
 
 .productsCartListItem__img {
@@ -80,6 +81,7 @@ export default {
 .productsCartListItem__btnsPanel {
     display: flex;
     align-items: center;
+    margin-right: 37px;
 }
 
 .productsCartListItem__panelBtn {

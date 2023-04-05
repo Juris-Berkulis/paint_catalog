@@ -28,6 +28,11 @@ export default {
                 return acc + currentProduct.price * currentProduct.count
             }, 0)
         },
+        totalProductsCountInCart () {
+            return this.productsListInCart.reduce((acc, currentProduct) => {
+                return acc + currentProduct.count
+            }, 0)
+        },
     },
 }
 </script>
@@ -40,7 +45,7 @@ export default {
             <button @click="(event) => setIsShowProductsCart(false)">x</button>
         </div>
         <div class="productsCart__additionally">
-            <p class="productsCart__additionallyCount">4 товара</p>
+            <p class="productsCart__additionallyCount">{{ totalProductsCountInCart }} товаров</p>
             <button class="productsCart__additionallyDelBtn">Очистить список</button>
         </div>
         <ProductsCartList v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart"></ProductsCartList>
