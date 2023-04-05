@@ -37,7 +37,7 @@ export default {
             <p class="productsSort__ListItemText">{{ sortOption.name }}</p>
         </div>
     </div>
-    <div class="productsSort__closeField" @click="(event) => setIsShowSortOptions(false)" v-if="isShowSortOptions"></div>
+    <BaseCloseField v-bind:isShowCloseField="isShowSortOptions" v-bind:setIsShowCloseField="setIsShowSortOptions"></BaseCloseField>
 </div>
 </template>
 
@@ -86,16 +86,5 @@ export default {
     line-height: 12px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-}
-
-.productsSort__closeField {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #000000;
-    opacity: 0.7;
-    z-index: 1;
 }
 </style>
