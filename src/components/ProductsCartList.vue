@@ -9,13 +9,19 @@ export default {
         productsListInCart: {
             type: Array,
         },
+        increaseProductsCountInCart: {
+            type: Function,
+        },
+        decreaseProductsCountInCart: {
+            type: Function,
+        },
     },
 }
 </script>
 
 <template>
 <div class="productsCartList">
-    <ProductsCartListItem v-for="productInCart in productsListInCart" :key="productInCart.id" v-bind:productInCart="productInCart"></ProductsCartListItem>
+    <ProductsCartListItem v-for="productInCart in productsListInCart" :key="productInCart.id" v-bind:productInCart="productInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart"></ProductsCartListItem>
 </div>
 </template>
 

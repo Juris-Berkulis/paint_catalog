@@ -13,6 +13,12 @@ export default {
             type: Function,
         },
         productsListInCart: {
+            type: Array,
+        },
+        increaseProductsCountInCart: {
+            type: Function,
+        },
+        decreaseProductsCountInCart: {
             type: Function,
         },
     },
@@ -37,7 +43,7 @@ export default {
             <p class="productsCart__additionallyCount">4 товара</p>
             <button class="productsCart__additionallyDelBtn">Очистить список</button>
         </div>
-        <ProductsCartList v-bind:productsListInCart="productsListInCart"></ProductsCartList>
+        <ProductsCartList v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart"></ProductsCartList>
     </div>
     <div class="productsCart__bottom">
         <div class="productsCart__total">

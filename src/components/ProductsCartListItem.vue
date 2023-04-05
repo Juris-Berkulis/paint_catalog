@@ -4,6 +4,12 @@ export default {
         productInCart: {
             type: Object,
         },
+        increaseProductsCountInCart: {
+            type: Function,
+        },
+        decreaseProductsCountInCart: {
+            type: Function,
+        },
     },
 }
 </script>
@@ -19,11 +25,11 @@ export default {
     </div>
     <div class="productsCartListItem__right">
         <div class="productsCartListItem__btnsPanel">
-            <button class="productsCartListItem__panelBtn">
+            <button class="productsCartListItem__panelBtn" @click="(event) => decreaseProductsCountInCart(productInCart)">
                 <div class="productsCartListItem__panelBtnIconHorizontal"></div>
             </button>
             <p class="productsCartListItem__btnsPanelCount">{{ productInCart.count }}</p>
-            <button class="productsCartListItem__panelBtn">
+            <button class="productsCartListItem__panelBtn" @click="(event) => increaseProductsCountInCart(productInCart)">
                 <div class="productsCartListItem__panelBtnIconHorizontal"></div>
                 <div class="productsCartListItem__panelBtnIconVertical"></div>
             </button>
