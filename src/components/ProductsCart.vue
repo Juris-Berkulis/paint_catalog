@@ -28,6 +28,23 @@ export default {
             type: Function,
         },
     },
+    methods: {
+        placeOrder () {
+            const productsListForOrder = this.productsListInCart.filter(product => {
+                return !product.isMarkProductForRemoval
+            });
+
+            this.clearProductsListInCart();
+
+            this.setIsShowProductsCart(false);
+
+            console.log(productsListForOrder);
+            const timerId = setTimeout(() => {
+                alert(`Заказ оформлен!\n\nПосмотреть заказ можно в консоли`);
+                clearTimeout(timerId);
+            }, 0);
+        },
+    },
     computed: {
         totalProductsSumInCart () {
             return this.productsListInCart.reduce((acc, currentProduct) => {
@@ -64,7 +81,7 @@ export default {
             <p class="productsCart__totalText">Итого</p>
             <p class="productsCart__totalPrice">{{ totalProductsSumInCart }}₽</p>
         </div>
-        <button class="productsCart__placeOrderBtn">Оформить заказ</button>
+        <button class="productsCart__placeOrderBtn" @click="(event) => placeOrder()">Оформить заказ</button>
     </div>
 </div>
 </template>
