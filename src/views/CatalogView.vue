@@ -36,6 +36,7 @@ export default {
             ],
             sliderData: sliderData,
             currentPage: 1,
+            isShowProductsFilter: false,
         }
     },
     methods: {
@@ -66,6 +67,9 @@ export default {
             } else {
                 this.currentPage++;
             }
+        },
+        setIsShowProductsFilter (boolean) {
+            this.isShowProductsFilter = boolean;
         },
     },
     computed: {
@@ -105,13 +109,15 @@ export default {
         </template>
     </BaseSlider>
     <div class="catalogView__root">
-        <div class="catalogView__filterWrapper">
-            <div class="catalogView__filterLine"></div>
+        <div :class="['catalogView__filterWrapper', {'catalogView__filterWrapper__showForMobile': isShowProductsFilter}]">
+            <div class="catalogView__filterLine" @click="(event) => setIsShowProductsFilter(false)"></div>
             <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
         </div>
+        <BaseCloseField class="catalogView__closeFieldForFilter" v-bind:isShowCloseField="isShowProductsFilter" v-bind:setIsShowCloseField="setIsShowProductsFilter"></BaseCloseField>
         <div class="catalogView__main">
             <div class="catalogView__mainHead">
                 <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSorted.length }} товаров</p>
+                <p class="catalogView__mainHeadFilterOpeningBtn" @click="(event) => setIsShowProductsFilter(true)">Фильтры</p>
                 <ProductsSort v-bind:selectedSort="selectedSort" v-bind:sortOptions="sortOptions" v-bind:selectSortOption="selectSortOption" v-bind:isShowSortOptions="isShowSortOptions" v-bind:setIsShowSortOptions="setIsShowSortOptions"></ProductsSort>
             </div>
             <ProductsList v-bind:productsData="productsDataFilteredAndSorted" v-bind:addProductInCart="addProductInCart"></ProductsList>
@@ -149,6 +155,14 @@ export default {
         background-color: #ffffff;
         border-radius: 24px 24px 0px 0px;
         transform: translateY(100%);
+        transition: transform 0.5s linear 0.1s;
+        z-index: 2;
+    }
+}
+
+@media (max-width: 1280px) {
+    .catalogView__filterWrapper__showForMobile {
+        transform: translateY(0);
     }
 }
 
@@ -167,6 +181,16 @@ export default {
         margin-bottom: 38px;
         margin-left: 50%;
         transform: translateX(-50%);
+    }
+}
+
+.catalogView__closeFieldForFilter {
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    .catalogView__closeFieldForFilter {
+        display: block;
     }
 }
 
@@ -192,6 +216,27 @@ export default {
     line-height: 15px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+}
+
+@media (max-width: 1280px) {
+    .catalogView__mainHeadCount {
+        display: none;
+    }
+}
+
+.catalogView__mainHeadFilterOpeningBtn {
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    .catalogView__mainHeadFilterOpeningBtn {
+        display: block;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
 }
 
 .category {

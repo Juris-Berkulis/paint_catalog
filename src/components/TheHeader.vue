@@ -63,6 +63,7 @@ export default {
             </div>
         </div>
     </div>
+    <BaseCloseField class="catalogView__closeFieldForMenu" v-bind:isShowCloseField="isShowMobileMenu" v-bind:setIsShowCloseField="setIsShowMobileMenu"></BaseCloseField>
     <div class="header__btn header__btn__cart" @click="(event) => setIsShowProductsCart(true)">{{ totalProductsCountInCart }}</div>
 </div>
 </template>
@@ -169,7 +170,7 @@ export default {
         padding: 40px;
         background-color: #ffffff;
         transform: translateX(-100%);
-        transition: transform 0.5s linear 0.1s;
+        transition: transform 1s linear 0.1s;
         z-index: 3;
     }
 }
@@ -269,5 +270,15 @@ export default {
 
 .header__btn__cart:hover {
     opacity: 0.9;
+}
+
+.catalogView__closeFieldForMenu {
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    .catalogView__closeFieldForMenu {
+    display: block;
+}
 }
 </style>
