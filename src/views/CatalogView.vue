@@ -152,13 +152,13 @@ export default {
 @media (max-width: 1280px) {
     .catalogView__filterWrapper {
         position: fixed;
+        top: 100%;
         right: 0;
-        bottom: 0;
         left: 0;
         padding: 12px 24px 114px;
         background-color: #ffffff;
         border-radius: 24px 24px 0px 0px;
-        transform: translateY(100%);
+        transform: translateY(0);
         transition: transform 0.5s linear 0.1s;
         z-index: 2;
     }
@@ -166,7 +166,7 @@ export default {
 
 @media (max-width: 1280px) {
     .catalogView__filterWrapper__showForMobile {
-        transform: translateY(0);
+        transform: translateY(-100%);
     }
 }
 

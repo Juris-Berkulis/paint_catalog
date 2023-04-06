@@ -162,21 +162,23 @@ export default {
         position: relative;
         position: fixed;
         top: 0;
-        right: 0;
         bottom: 0;
-        left: 0;
+        left: -100%;
+        width: 100%;
         flex-direction: column;
         justify-content: flex-start;
         padding: 40px;
         background-color: #ffffff;
-        transform: translateX(-100%);
+        transform: translateX(0);
         transition: transform 1s linear 0.1s;
         z-index: 3;
     }
 }
 
-.header__menu__showForMobile {
-    transform: translateX(0);
+@media (max-width: 1280px) {
+    .header__menu__showForMobile {
+        transform: translateX(100%);
+    }
 }
 
 @media (max-width: 1280px) {
