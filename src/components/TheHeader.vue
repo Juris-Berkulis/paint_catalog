@@ -8,16 +8,34 @@ export default {
             type: Number,
         },
     },
+    data() {
+        return {
+            isShowMobileMenu: false,
+        }
+    },
+    methods: {
+        setIsShowMobileMenu (boolean) {
+            this.isShowMobileMenu = boolean;
+        }
+    },
 }
 </script>
 
 <template>
 <div class="header">
+    <div class="header__burgerMenu" @click="(event) => setIsShowMobileMenu(true)">
+        <div class="header__burgerMenuLine"></div>
+        <div class="header__burgerMenuLine"></div>
+        <div class="header__burgerMenuLine"></div>
+    </div>
     <div class="header__logo">
         <p class="header__logoText">Colors</p>
         <div class="header__logoIcon"></div>
     </div>
-    <div class="header__menu">
+    <div :class="['header__menu', {'header__menu__showForMobile': isShowMobileMenu}]">
+        <div class="header__menuCloseBtn" @click="(event) => setIsShowMobileMenu(false)">
+            <IconCross></IconCross>
+        </div>
         <div class="header__main">
             <div class="header__mainNav">
                 <a class="header__mainNavLink" href="#">Продукты</a>
@@ -68,9 +86,38 @@ export default {
     }
 }
 
+.header__burgerMenu {
+    display: none;
+    height: 14px;
+    width: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+    .header__burgerMenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 1280px) {
+    .header__burgerMenuLine {
+        height: 2px;
+        width: 100%;
+        background-color: #1F2020;
+    }
+}
+
 .header__logo {
     display: flex;
     margin-right: 9vw;
+}
+
+@media (max-width: 1280px) {
+    .header__logo {
+        margin-right: 0;
+    }
 }
 
 .header__logoText {
@@ -81,12 +128,25 @@ export default {
     text-transform: uppercase;
 }
 
+@media (max-width: 1280px) {
+    .header__logoText {
+        font-size: 22px;
+        line-height: 22px;
+    }
+}
+
 .header__logoIcon {
     height: 8px;
     width: 8px;
     margin-top: 4px;
     border-radius: 50%;
     background-color: #1F2020;
+}
+
+@media (max-width: 1280px) {
+    .header__logoIcon {
+        margin-top: 2px;
+    }
 }
 
 .header__menu {
@@ -98,6 +158,7 @@ export default {
 
 @media (max-width: 1280px) {
     .header__menu {
+        position: relative;
         position: fixed;
         top: 0;
         right: 0;
@@ -108,8 +169,19 @@ export default {
         padding: 40px;
         background-color: #ffffff;
         transform: translateX(-100%);
+        transition: transform 0.5s linear 0.1s;
         z-index: 3;
     }
+}
+
+.header__menu__showForMobile {
+    transform: translateX(0);
+}
+
+.header__menuCloseBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .header__main {
