@@ -61,6 +61,7 @@ export default {
 
 .header__logo {
     display: flex;
+    margin-right: 9vw;
 }
 
 .header__logoText {
@@ -83,6 +84,8 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 6vw;
+    flex-grow: 1;
 }
 
 .header__mainNavLink {
