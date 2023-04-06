@@ -115,7 +115,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: 'Inter';
+  font-family: 'Inter', 'Times New Roman', sans-serif;
+  font-style: normal;
 }
 
 .up {

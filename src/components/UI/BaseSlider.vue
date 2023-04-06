@@ -55,7 +55,7 @@ export default {
     overflow-x: hidden;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .slider {
         padding-bottom: 48px;
     }
@@ -66,7 +66,7 @@ export default {
     transition: transform 0.3s linear 0.1s;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .slider__list {
         display: none;
     }
@@ -121,7 +121,7 @@ export default {
     border-radius: 16px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .slider__pageWrapper {
         display: none;
     }
@@ -147,7 +147,7 @@ export default {
     cursor: pointer;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .slider__arrow {
         display: none;
     }
@@ -168,7 +168,7 @@ export default {
     left: 64px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .slider__slot__category {
         position: relative;
         top: 0;
@@ -181,7 +181,7 @@ export default {
     display: none;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .slider__title {
         display: block;
         font-weight: 400;

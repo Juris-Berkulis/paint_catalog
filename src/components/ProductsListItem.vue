@@ -33,7 +33,7 @@ export default {
     padding: 16px 0;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .productsListItem {
         width: 156px;
         padding: 24px 0 34px;
@@ -51,7 +51,7 @@ export default {
     font-size: 16px;
 }
 
-@media (max-width: 1280px) and (hover: none) and (pointer: coarse), (max-width: 400px) {
+@media (max-width: 1301px) and (hover: none) and (pointer: coarse), (max-width: 400px) {
     .productsListItem__name {
         margin-bottom: 20px;
         letter-spacing: 0.02em;
@@ -90,7 +90,7 @@ export default {
     opacity: 0.9;
 }
 
-@media (max-width: 1280px) and (hover: none) and (pointer: coarse), (max-width: 400px) {
+@media (max-width: 1301px) and (hover: none) and (pointer: coarse), (max-width: 400px) {
     .productsListItem__btn {
         height: 24px;
         width: 40px;

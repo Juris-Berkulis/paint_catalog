@@ -80,7 +80,7 @@ export default {
     background-color: #ffffff;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header {
         height: 64px;
         padding: 0 24px;
@@ -94,7 +94,7 @@ export default {
     cursor: pointer;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__burgerMenu {
         display: flex;
         flex-direction: column;
@@ -102,7 +102,7 @@ export default {
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__burgerMenuLine {
         height: 2px;
         width: 100%;
@@ -115,21 +115,22 @@ export default {
     margin-right: 9vw;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__logo {
         margin-right: 0;
     }
 }
 
 .header__logoText {
-    font-family: 'TT Hoves';
+    font-family: 'TT Hoves', 'Times New Roman', sans-serif;
+    font-style: normal;
     font-weight: 400;
     font-size: 30px;
     line-height: 30px;
     text-transform: uppercase;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__logoText {
         font-size: 22px;
         line-height: 22px;
@@ -144,7 +145,7 @@ export default {
     background-color: #1F2020;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__logoIcon {
         margin-top: 2px;
     }
@@ -157,7 +158,7 @@ export default {
     flex-grow: 1;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__menu {
         position: relative;
         position: fixed;
@@ -175,17 +176,22 @@ export default {
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__menu__showForMobile {
         transform: translateX(100%);
     }
 }
 
-@media (max-width: 1280px) {
+.header__menuCloseBtn {
+    display: none;
+}
+
+@media (max-width: 1301px) {
     .header__menuCloseBtn {
         position: absolute;
         top: 20px;
         right: 20px;
+        display: block;
     }
 }
 
@@ -197,7 +203,7 @@ export default {
     flex-grow: 1;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__main {
         flex-direction: column;
         align-items: flex-start;
@@ -207,7 +213,7 @@ export default {
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__mainNav {
         display: flex;
         flex-direction: column;
@@ -221,7 +227,7 @@ export default {
     text-transform: uppercase;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__mainNavLink {
         margin-right: 0;
         margin-bottom: 40px;
@@ -254,7 +260,7 @@ export default {
     cursor: pointer;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .header__btn:last-child {
         margin-right: 0;
     }
@@ -280,9 +286,9 @@ export default {
     display: none;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView__closeFieldForMenu {
-    display: block;
-}
+        display: block;
+    }
 }
 </style>

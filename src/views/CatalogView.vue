@@ -131,7 +131,7 @@ export default {
     background-color: #ffffff;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView {
         padding: 0 24px;
     }
@@ -143,13 +143,13 @@ export default {
     padding: 72px 64px 125px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView__root {
         padding: 0 0 30px;
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView__filterWrapper {
         position: fixed;
         top: 100%;
@@ -164,7 +164,7 @@ export default {
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView__filterWrapper__showForMobile {
         transform: translateY(-100%);
     }
@@ -174,7 +174,7 @@ export default {
     display: none;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView__filterLine {
         display: block;
         width: 28px;
@@ -192,7 +192,7 @@ export default {
     display: none;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView__closeFieldForFilter {
         display: block;
     }
@@ -208,7 +208,7 @@ export default {
     margin-bottom: 28px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView__mainHead {
         margin-bottom: 0;
     }
@@ -222,7 +222,7 @@ export default {
     text-transform: uppercase;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView__mainHeadCount {
         display: none;
     }
@@ -232,7 +232,7 @@ export default {
     display: none;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .catalogView__mainHeadFilterOpeningBtn {
         display: block;
         font-weight: 500;
@@ -259,7 +259,7 @@ export default {
     margin-right: 8px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .category__text {
         color: #1F2020;
     }
@@ -274,7 +274,7 @@ export default {
     border-radius: 50%;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1301px) {
     .category__separator {
         opacity: 1;
     }
