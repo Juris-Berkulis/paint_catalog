@@ -61,6 +61,13 @@ export default {
     background-color: #ffffff;
 }
 
+@media (max-width: 1280px) {
+    .header {
+        height: 64px;
+        padding: 0 24px;
+    }
+}
+
 .header__logo {
     display: flex;
     margin-right: 9vw;

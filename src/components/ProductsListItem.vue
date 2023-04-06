@@ -22,12 +22,22 @@ export default {
                 <div class="productsListItem__btnIcon__horizontal productsListItem__btnIcon"></div>
             </button>
         </div>
+        <div class="productsListItem__underline"></div>
     </div>
 </template>
 
 <style scoped>
 .productsListItem {
+    position: relative;
     width: 278px;
+    padding: 16px 0;
+}
+
+@media (max-width: 1280px) {
+    .productsListItem {
+        width: 156px;
+        padding: 24px 0 34px;
+    }
 }
 
 .productsListItem__img {
@@ -39,6 +49,13 @@ export default {
     margin-bottom: 16px;
     font-weight: 300;
     font-size: 16px;
+}
+
+@media (max-width: 1280px) and (hover: none) and (pointer: coarse), (max-width: 400px) {
+    .productsListItem__name {
+        margin-bottom: 20px;
+        letter-spacing: 0.02em;
+    }
 }
 
 .productsListItem__additionally {
@@ -73,6 +90,16 @@ export default {
     opacity: 0.9;
 }
 
+@media (max-width: 1280px) and (hover: none) and (pointer: coarse), (max-width: 400px) {
+    .productsListItem__btn {
+        height: 24px;
+        width: 40px;
+        opacity: 1;
+        background: #F2F2F2;
+        border-radius: 6px;
+    }
+}
+
 .productsListItem__btnIcon {
     position: absolute;
     height: 2px;
@@ -88,5 +115,15 @@ export default {
 .productsListItem__btnIcon__horizontal {
     top: 50%;
     transform: translateY(-50%) rotateZ(90deg);
+}
+
+.productsListItem__underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: #000000;
+    opacity: 0.1;
 }
 </style>

@@ -45,6 +45,7 @@ export default {
     <div class="slider__slot__category">
         <slot name="category"></slot>
     </div>
+    <p class="slider__title">{{ sliderData[0].title }}</p>
 </div>
 </template>
 
@@ -54,9 +55,21 @@ export default {
     overflow-x: hidden;
 }
 
+@media (max-width: 1280px) {
+    .slider {
+        padding-bottom: 48px;
+    }
+}
+
 .slider__list {
     display: flex;
     transition: transform 0.3s linear 0.1s;
+}
+
+@media (max-width: 1280px) {
+    .slider__list {
+        display: none;
+    }
 }
 
 .slider__listItem {
@@ -108,6 +121,12 @@ export default {
     border-radius: 16px;
 }
 
+@media (max-width: 1280px) {
+    .slider__pageWrapper {
+        display: none;
+    }
+}
+
 .slider__page {
     height: 6px;
     width: 6px;
@@ -128,6 +147,12 @@ export default {
     cursor: pointer;
 }
 
+@media (max-width: 1280px) {
+    .slider__arrow {
+        display: none;
+    }
+}
+
 .slider__arrow__previous {
     left: 22%;
     transform: rotateZ(180deg);
@@ -141,5 +166,28 @@ export default {
     position: absolute;
     top: 32px;
     left: 64px;
+}
+
+@media (max-width: 1280px) {
+    .slider__slot__category {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 48px;
+    }
+}
+
+.slider__title {
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    .slider__title {
+        display: block;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 88%;
+        letter-spacing: -0.04em;
+    }
 }
 </style>

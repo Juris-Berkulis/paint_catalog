@@ -105,7 +105,10 @@ export default {
         </template>
     </BaseSlider>
     <div class="catalogView__root">
-        <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
+        <div class="catalogView__filterWrapper">
+            <div class="catalogView__filterLine"></div>
+            <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
+        </div>
         <div class="catalogView__main">
             <div class="catalogView__mainHead">
                 <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSorted.length }} товаров</p>
@@ -118,10 +121,53 @@ export default {
 </template>
 
 <style scoped>
+@media (max-width: 1280px) {
+    .catalogView {
+        padding: 0 24px;
+    }
+}
+
 .catalogView__root {
     display: flex;
     justify-content: space-between;
-    padding: 72px 64px 141px;
+    padding: 72px 64px 125px;
+}
+
+@media (max-width: 1280px) {
+    .catalogView__root {
+        padding: 0 0 30px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .catalogView__filterWrapper {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 12px 24px 114px;
+        background-color: #ffffff;
+        border-radius: 24px 24px 0px 0px;
+        transform: translateY(100%);
+    }
+}
+
+.catalogView__filterLine {
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    .catalogView__filterLine {
+        display: block;
+        width: 28px;
+        height: 4px;
+        background-color: #1F2020;
+        opacity: 0.6;
+        border-radius: 40px;
+        margin-bottom: 38px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 .catalogView__main {
@@ -131,7 +177,13 @@ export default {
 .catalogView__mainHead {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 44px;
+    margin-bottom: 28px;
+}
+
+@media (max-width: 1280px) {
+    .catalogView__mainHead {
+        margin-bottom: 0;
+    }
 }
 
 .catalogView__mainHeadCount {
@@ -158,6 +210,12 @@ export default {
     margin-right: 8px;
 }
 
+@media (max-width: 1280px) {
+    .category__text {
+        color: #1F2020;
+    }
+}
+
 .category__separator {
     height: 3px;
     width: 3px;
@@ -165,5 +223,11 @@ export default {
     opacity: 0.3;
     margin-right: 8px;
     border-radius: 50%;
+}
+
+@media (max-width: 1280px) {
+    .category__separator {
+        opacity: 1;
+    }
 }
 </style>
