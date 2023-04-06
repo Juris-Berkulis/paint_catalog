@@ -17,33 +17,35 @@ export default {
         <p class="header__logoText">Colors</p>
         <div class="header__logoIcon"></div>
     </div>
-    <div class="header__main">
-        <div class="header__mainNav">
-            <a class="header__mainNavLink" href="#">Продукты</a>
-            <a class="header__mainNavLink" href="#">Цвета</a>
-            <a class="header__mainNavLink" href="#">Вдохновение</a>
-            <a class="header__mainNavLink" href="#">Советы</a>
-            <a class="header__mainNavLink" href="#">Найти магазин</a>
+    <div class="header__menu">
+        <div class="header__main">
+            <div class="header__mainNav">
+                <a class="header__mainNavLink" href="#">Продукты</a>
+                <a class="header__mainNavLink" href="#">Цвета</a>
+                <a class="header__mainNavLink" href="#">Вдохновение</a>
+                <a class="header__mainNavLink" href="#">Советы</a>
+                <a class="header__mainNavLink" href="#">Найти магазин</a>
+            </div>
+            <div class="header__mainTel">
+                <p class="header__mainTelContent">
+                    <a class="header__mainTelContentLink" href="tel:+74952217769">+7 (495) 221-77-69</a>
+                </p>
+                <p class="header__mainTelDescription">Заказать звонок</p>
+            </div>
         </div>
-        <div class="header__mainTel">
-            <p class="header__mainTelContent">
-                <a class="header__mainTelContentLink" href="tel:+74952217769">+7 (495) 221-77-69</a>
-            </p>
-            <p class="header__mainTelDescription">Заказать звонок</p>
+        <div class="header__btnsPanel">
+            <div class="header__btn">
+                <IconSearch></IconSearch>
+            </div>
+            <div class="header__btn">
+                <IconProfile></IconProfile>
+            </div>
+            <div class="header__btn">
+                <IconLike></IconLike>
+            </div>
         </div>
     </div>
-    <div class="header__btnsPanel">
-        <div class="header__btn">
-            <IconSearch></IconSearch>
-        </div>
-        <div class="header__btn">
-            <IconProfile></IconProfile>
-        </div>
-        <div class="header__btn">
-            <IconLike></IconLike>
-        </div>
-        <div class="header__btn header__btn__cart" @click="(event) => setIsShowProductsCart(true)">{{ totalProductsCountInCart }}</div>
-    </div>
+    <div class="header__btn header__btn__cart" @click="(event) => setIsShowProductsCart(true)">{{ totalProductsCountInCart }}</div>
 </div>
 </template>
 
@@ -78,6 +80,13 @@ export default {
     margin-top: 4px;
     border-radius: 50%;
     background-color: #1F2020;
+}
+
+.header__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .header__main {
@@ -121,11 +130,8 @@ export default {
     cursor: pointer;
 }
 
-.header__btn:last-child {
-    margin: 0;
-}
-
 .header__btn__cart {
+    margin-right: 0;
     border-radius: 50%;
     background-color: #7BB899;
     font-weight: 500;
