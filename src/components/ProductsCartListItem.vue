@@ -82,6 +82,12 @@ export default {
     margin-right: 62px;
 }
 
+@media (max-width: 700px) {
+    .productsCartListItem__left {
+        margin-right: 5px;
+    }
+}
+
 .productsCartListItem__imgWrapper {
     margin-right: 8px;
     opacity: 1;
@@ -122,10 +128,23 @@ export default {
     align-items: center;
 }
 
+@media (max-width: 700px) {
+    .productsCartListItem__right {
+        flex-direction: column;
+    }
+}
+
 .productsCartListItem__btnsPanel {
     display: flex;
     align-items: center;
     margin-right: 37px;
+}
+
+@media (max-width: 700px) {
+    .productsCartListItem__btnsPanel {
+        flex-direction: column-reverse;
+        margin-right: 0;
+    }
 }
 
 .productsCartListItem__panelBtn {

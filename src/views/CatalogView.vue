@@ -113,7 +113,7 @@ export default {
             <div class="catalogView__filterLine" @click="(event) => setIsShowProductsFilter(false)"></div>
             <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
         </div>
-        <BaseCloseField class="catalogView__closeFieldForFilter" v-bind:isShowCloseField="isShowProductsFilter" v-bind:setIsShowCloseField="setIsShowProductsFilter"></BaseCloseField>
+        <BaseCloseField class="catalogView__closeFieldForFilter" v-bind:isShowCloseField="isShowProductsFilter" v-bind:setIsShowCloseField="setIsShowProductsFilter" v-bind:transitionDuration="0.5" v-bind:transitionDelay="0.1"></BaseCloseField>
         <div class="catalogView__main">
             <div class="catalogView__mainHead">
                 <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSorted.length }} товаров</p>
@@ -127,6 +127,10 @@ export default {
 </template>
 
 <style scoped>
+.catalogView {
+    background-color: #ffffff;
+}
+
 @media (max-width: 1280px) {
     .catalogView {
         padding: 0 24px;

@@ -103,7 +103,7 @@ export default {
   </div>
   <TheFooter></TheFooter>
   <ProductsCart v-bind:isShowProductsCart="isShowProductsCart" v-bind:setIsShowProductsCart="setIsShowProductsCart" v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn" v-bind:clearProductsListInCart="clearProductsListInCart"></ProductsCart>
-  <BaseCloseField v-bind:isShowCloseField="isShowProductsCart" v-bind:setIsShowCloseField="setIsShowProductsCart"></BaseCloseField>
+  <BaseCloseField v-bind:isShowCloseField="isShowProductsCart" v-bind:setIsShowCloseField="setIsShowProductsCart" v-bind:transitionDuration="0.5" v-bind:transitionDelay="0.1"></BaseCloseField>
 </div>
 </template>
 

@@ -44,7 +44,7 @@ export default {
 </script>
 
 <template>
-<div class="productsCart" v-if="isShowProductsCart">
+<div :class="`productsCart ${isShowProductsCart ? 'productsCart__opened' : 'productsCart__closed'}`">
     <div class="productsCart__up">
         <div class="productsCart__head">
             <p class="productsCart__headTitle">Корзина</p>
@@ -81,7 +81,22 @@ export default {
     justify-content: space-between;
     padding: 32px 40px 40px;
     background-color: #ffffff;
+    transition: transform 0.5s linear 0.1s;
     z-index: 2;
+}
+
+@media (max-width: 700px) {
+    .productsCart {
+        width: 100vw;
+    }
+}
+
+.productsCart__opened {
+    transform: translateX(0);
+}
+
+.productsCart__closed {
+    transform: translateX(100%);
 }
 
 .productsCart__up {
@@ -192,5 +207,11 @@ export default {
 
 .productsCart__placeOrderBtn:hover {
     opacity: 0.9;
+}
+
+@media (max-width: 700px) {
+    .productsCart__placeOrderBtn {
+        padding: 10px;
+    }
 }
 </style>

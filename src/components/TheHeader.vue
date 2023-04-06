@@ -63,7 +63,7 @@ export default {
             </div>
         </div>
     </div>
-    <BaseCloseField class="catalogView__closeFieldForMenu" v-bind:isShowCloseField="isShowMobileMenu" v-bind:setIsShowCloseField="setIsShowMobileMenu"></BaseCloseField>
+    <BaseCloseField class="catalogView__closeFieldForMenu" v-bind:isShowCloseField="isShowMobileMenu" v-bind:setIsShowCloseField="setIsShowMobileMenu" v-bind:transitionDuration="1" v-bind:transitionDelay="0.1"></BaseCloseField>
     <div class="header__btn header__btn__cart" @click="(event) => setIsShowProductsCart(true)">{{ totalProductsCountInCart }}</div>
 </div>
 </template>
@@ -179,10 +179,12 @@ export default {
     transform: translateX(0);
 }
 
-.header__menuCloseBtn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+@media (max-width: 1280px) {
+    .header__menuCloseBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
 }
 
 .header__main {
