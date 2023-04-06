@@ -89,6 +89,22 @@ export default {
     flex-grow: 1;
 }
 
+@media (max-width: 1280px) {
+    .header__menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 40px;
+        background-color: #ffffff;
+        transform: translateX(-100%);
+        z-index: 3;
+    }
+}
+
 .header__main {
     display: flex;
     justify-content: space-between;
@@ -97,11 +113,35 @@ export default {
     flex-grow: 1;
 }
 
+@media (max-width: 1280px) {
+    .header__main {
+        flex-direction: column;
+        align-items: flex-start;
+        flex-grow: 0;
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .header__mainNav {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .header__mainNavLink {
     margin-right: 24px;
     font-weight: 400;
     font-size: 14px;
     text-transform: uppercase;
+}
+
+@media (max-width: 1280px) {
+    .header__mainNavLink {
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
 }
 
 .header__mainTelContentLink {
@@ -128,6 +168,12 @@ export default {
     align-items: center;
     margin-right: 24px;
     cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+    .header__btn:last-child {
+        margin-right: 0;
+    }
 }
 
 .header__btn__cart {

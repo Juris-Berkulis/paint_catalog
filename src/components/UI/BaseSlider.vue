@@ -42,6 +42,9 @@ export default {
     <div class="slider__arrow slider__arrow__next" @click="(event) => nextPage()">
         <IconArrow></IconArrow>
     </div>
+    <div class="slider__slot__category">
+        <slot name="category"></slot>
+    </div>
 </div>
 </template>
 
@@ -132,5 +135,11 @@ export default {
 
 .slider__arrow__next {
     right: 22%;
+}
+
+.slider__slot__category {
+    position: absolute;
+    top: 32px;
+    left: 64px;
 }
 </style>

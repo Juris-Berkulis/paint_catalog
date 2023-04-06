@@ -93,7 +93,17 @@ export default {
 
 <template>
 <div class="catalogView">
-    <BaseSlider v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage" v-bind:previousPage="previousPage" v-bind:nextPage="nextPage"></BaseSlider>
+    <BaseSlider v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage" v-bind:previousPage="previousPage" v-bind:nextPage="nextPage">
+        <template v-slot:category>
+            <div class="category">
+                <p class="category__text">Главная</p>
+                <div class="category__separator"></div>
+                <p class="category__text">Продукты</p>
+                <div class="category__separator"></div>
+                <p class="category__text">Краски</p>
+            </div>
+        </template>
+    </BaseSlider>
     <div class="catalogView__root">
         <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
         <div class="catalogView__main">
@@ -130,5 +140,30 @@ export default {
     line-height: 15px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+}
+
+.category__text {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.3;
+    margin-right: 8px;
+}
+
+.category__separator {
+    height: 3px;
+    width: 3px;
+    background: #C4C4C4;
+    opacity: 0.3;
+    margin-right: 8px;
+    border-radius: 50%;
 }
 </style>
