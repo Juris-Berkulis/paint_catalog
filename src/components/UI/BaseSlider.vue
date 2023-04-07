@@ -173,7 +173,7 @@ export default {
         position: relative;
         top: 0;
         left: 0;
-        margin-bottom: 48px;
+        margin: 16px 0 48px;
     }
 }
 

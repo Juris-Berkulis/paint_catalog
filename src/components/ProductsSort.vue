@@ -28,7 +28,7 @@ export default {
 
 <template>
 <div class="productsSort">
-    <div class="productsSort__selected" @click="(event) => setIsShowSortOptions(true)">
+    <div class="productsSort__selected" v-if="!isShowSortOptions" @click="(event) => setIsShowSortOptions(true)">
         <p class="productsSort__selectedText">{{ selectedSort.name }}</p>
         <iconExpandList></iconExpandList>
     </div>

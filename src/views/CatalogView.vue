@@ -115,6 +115,7 @@ export default {
 
 <template>
 <div class="catalogView">
+    <div class="catalogView__upperline"></div>
     <BaseSlider v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage" v-bind:previousPage="previousPage" v-bind:nextPage="nextPage">
         <template v-slot:category>
             <div class="category">
@@ -153,6 +154,20 @@ export default {
 @media (max-width: 1301px) {
     .catalogView {
         padding: 0 24px;
+    }
+}
+
+.catalogView__upperline {
+    display: none;
+}
+
+@media (max-width: 1301px) {
+    .catalogView__upperline {
+        height: 1px;
+        width: 100%;
+        display: block;
+        background-color: #1F2020;
+        opacity: 0.06;
     }
 }
 
