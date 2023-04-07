@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-<div class="slider">
+<div class="slider" v-if="sliderData.length">
     <div class="slider__list" :style="`transform: translateX(-${(currentPage - 1) * 100}vw)`">
         <div class="slider__listItem" v-for="sliderDataItem in sliderData" :key="sliderDataItem.id">
             <img class="slider__listItemImg" :src="`../../../img/slider/${sliderDataItem.id}.jpg`" alt="slider">

@@ -18,7 +18,7 @@ export default {
     },
     data() {
         return {
-            productsData: productsData,
+            productsData: [],
             selectedSort: {value: 'price', name: 'Сначала дорогие', isReversed: true},
             sortOptions: [
                 {value: 'price', name: 'Сначала дорогие', isReversed: true},
@@ -34,9 +34,11 @@ export default {
                 {value: 'isExclusiveProduct', name: 'Эксклюзивные', isTurnedOn: false},
                 {value: 'isDiscount', name: 'Распродажа', isTurnedOn: false},
             ],
-            sliderData: sliderData,
+            sliderData: [],
             currentPage: 1,
             isShowProductsFilter: false,
+            isProductsDataLoading: true,
+            isSliderDataLoading: true,
         }
     },
     methods: {
@@ -71,6 +73,40 @@ export default {
         setIsShowProductsFilter (boolean) {
             this.isShowProductsFilter = boolean;
         },
+        async getProductsData () {
+            try {
+                const response = await fetch(`https://raw.githubusercontent.com/Juris-Berkulis/paint_catalog/main/src/data/productsData.json`);
+
+                if (response.ok) {
+                    const json = await response.json();
+
+                    this.productsData = json;
+                } else {
+                    throw {message: `Ошибка HTTP: ${response.status}`}
+                }
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                this.isProductsDataLoading = false;
+            }
+        },
+        async getSliderData () {
+            try {
+                const response = await fetch(`https://raw.githubusercontent.com/Juris-Berkulis/paint_catalog/main/src/data/sliderData.json`);
+
+                if (response.ok) {
+                    const json = await response.json();
+
+                    this.sliderData = json;
+                } else {
+                    throw {message: `Ошибка HTTP: ${response.status}`}
+                }
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                this.isSliderDataLoading = false;
+            }
+        },
     },
     computed: {
         productsDataFiltered () {
@@ -92,12 +128,16 @@ export default {
             })
         },
     },
+    async mounted() {
+        await this.getSliderData();
+        await this.getProductsData();
+    },
 }
 </script>
 
 <template>
 <div class="catalogView">
-    <BaseSlider v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage" v-bind:previousPage="previousPage" v-bind:nextPage="nextPage">
+    <BaseSlider v-if="!isSliderDataLoading" v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage" v-bind:previousPage="previousPage" v-bind:nextPage="nextPage">
         <template v-slot:category>
             <div class="category">
                 <p class="category__text">Главная</p>
@@ -108,6 +148,7 @@ export default {
             </div>
         </template>
     </BaseSlider>
+    <BaseLoader v-else></BaseLoader>
     <div class="catalogView__root">
         <div :class="['catalogView__filterWrapper', {'catalogView__filterWrapper__showForMobile': isShowProductsFilter}]">
             <div class="catalogView__filterLine" @click="(event) => setIsShowProductsFilter(false)"></div>
@@ -120,7 +161,8 @@ export default {
                 <p class="catalogView__mainHeadFilterOpeningBtn" @click="(event) => setIsShowProductsFilter(true)">Фильтры</p>
                 <ProductsSort v-bind:selectedSort="selectedSort" v-bind:sortOptions="sortOptions" v-bind:selectSortOption="selectSortOption" v-bind:isShowSortOptions="isShowSortOptions" v-bind:setIsShowSortOptions="setIsShowSortOptions"></ProductsSort>
             </div>
-            <ProductsList v-bind:productsData="productsDataFilteredAndSorted" v-bind:addProductInCart="addProductInCart"></ProductsList>
+            <ProductsList v-if="!isProductsDataLoading" v-bind:productsData="productsDataFilteredAndSorted" v-bind:addProductInCart="addProductInCart"></ProductsList>
+            <BaseLoader v-else></BaseLoader>
         </div>
     </div>
 </div>
