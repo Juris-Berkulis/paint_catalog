@@ -2,6 +2,7 @@
 import ProductsFilter from '../components/ProductsFilter.vue';
 import ProductsSort from '../components/ProductsSort.vue';
 import ProductsList from '../components/ProductsList.vue';
+import {sliderData} from '../data/sliderData';
 
 export default {
     components: { 
@@ -32,11 +33,10 @@ export default {
                 {value: 'isExclusiveProduct', name: 'Эксклюзивные', isTurnedOn: false},
                 {value: 'isDiscount', name: 'Распродажа', isTurnedOn: false},
             ],
-            sliderData: [],
+            sliderData: sliderData,
             currentPage: 1,
             isShowProductsFilter: false,
             isProductsDataLoading: true,
-            isSliderDataLoading: true,
         }
     },
     methods: {
@@ -86,21 +86,6 @@ export default {
                 this.isProductsDataLoading = false;
             }
         },
-        async getSliderData () {
-            try {
-                const response = await fetch(`https://raw.githubusercontent.com/Juris-Berkulis/paint_catalog/main/src/data/sliderData.json`);
-
-                if (response.ok) {
-                    this.sliderData = await response.json();
-                } else {
-                    throw {message: `Ошибка HTTP: ${response.status}`}
-                }
-            } catch (error) {
-                alert(error.message);
-            } finally {
-                this.isSliderDataLoading = false;
-            }
-        },
     },
     computed: {
         productsDataFiltered () {
@@ -123,7 +108,6 @@ export default {
         },
     },
     async mounted() {
-        await this.getSliderData();
         await this.getProductsData();
     },
 }
@@ -131,7 +115,7 @@ export default {
 
 <template>
 <div class="catalogView">
-    <BaseSlider v-if="!isSliderDataLoading" v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage" v-bind:previousPage="previousPage" v-bind:nextPage="nextPage">
+    <BaseSlider v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage" v-bind:previousPage="previousPage" v-bind:nextPage="nextPage">
         <template v-slot:category>
             <div class="category">
                 <p class="category__text">Главная</p>
@@ -142,7 +126,6 @@ export default {
             </div>
         </template>
     </BaseSlider>
-    <BaseLoader v-else></BaseLoader>
     <div class="catalogView__root">
         <div :class="['catalogView__filterWrapper', {'catalogView__filterWrapper__showForMobile': isShowProductsFilter}]">
             <div class="catalogView__filterLine" @click="(event) => setIsShowProductsFilter(false)"></div>
