@@ -78,9 +78,7 @@ export default {
                 const response = await fetch(`https://raw.githubusercontent.com/Juris-Berkulis/paint_catalog/main/src/data/productsData.json`);
 
                 if (response.ok) {
-                    const json = await response.json();
-
-                    this.productsData = json;
+                    this.productsData = await response.json();
                 } else {
                     throw {message: `Ошибка HTTP: ${response.status}`}
                 }
@@ -95,9 +93,7 @@ export default {
                 const response = await fetch(`https://raw.githubusercontent.com/Juris-Berkulis/paint_catalog/main/src/data/sliderData.json`);
 
                 if (response.ok) {
-                    const json = await response.json();
-
-                    this.sliderData = json;
+                    this.sliderData = await response.json();
                 } else {
                     throw {message: `Ошибка HTTP: ${response.status}`}
                 }
