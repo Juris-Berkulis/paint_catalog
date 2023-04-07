@@ -1,9 +1,7 @@
 <script>
 import ProductsFilter from '../components/ProductsFilter.vue';
 import ProductsSort from '../components/ProductsSort.vue';
-import ProductsList from '../components/productsList.vue';
-import {productsData} from '../data/productsData';
-import {sliderData} from '../data/sliderData';
+import ProductsList from '../components/ProductsList.vue';
 
 export default {
     components: { 
@@ -58,13 +56,13 @@ export default {
         },
         previousPage () {
             if (this.currentPage === 1) {
-                this.currentPage = sliderData.length;
+                this.currentPage = this.sliderData.length;
             } else {
                 this.currentPage--;
             }
         },
         nextPage () {
-            if (this.currentPage === sliderData.length) {
+            if (this.currentPage === this.sliderData.length) {
                 this.currentPage = 1;
             } else {
                 this.currentPage++;
