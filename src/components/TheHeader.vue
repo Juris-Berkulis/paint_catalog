@@ -1,11 +1,22 @@
 <script>
+import ProductsSearch from './ProductsSearch.vue';
+
 export default {
+    components: {
+        ProductsSearch,
+    },
     props: {
         setIsShowProductsCart: {
             type: Function,
         },
         totalProductsCountInCart: {
             type: Number,
+        },
+        valueInSearchInput: {
+            type: String,
+        },
+        setValueInSearchInput: {
+            type: Function,
         },
     },
     data() {
@@ -53,7 +64,7 @@ export default {
         </div>
         <div class="header__btnsPanel">
             <div class="header__btn">
-                <IconSearch></IconSearch>
+                <ProductsSearch v-bind:valueInSearchInput="valueInSearchInput" v-bind:setValueInSearchInput="setValueInSearchInput"></ProductsSearch>
             </div>
             <div class="header__btn">
                 <IconProfile></IconProfile>

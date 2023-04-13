@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-<div class="iconProfile">
+<span class="iconProfile">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_8_30)">
             <circle cx="11" cy="23" r="8.4" stroke="black" stroke-width="1.2"/>
@@ -17,13 +17,9 @@ export default {
             </clipPath>
         </defs>
     </svg>
-</div>
+</span>
 </template>
 
 <style scoped>
-.iconProfile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 </style>

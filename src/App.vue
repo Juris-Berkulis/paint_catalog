@@ -15,6 +15,7 @@ export default {
     return {
       isShowProductsCart: false,
       productsListInCart: [],
+      valueInSearchInput: '',
     }
   },
   computed: {
@@ -74,6 +75,9 @@ export default {
     clearProductsListInCart () {
       this.productsListInCart = [];
     },
+    setValueInSearchInput (valueInSearchInput) {
+      this.valueInSearchInput = valueInSearchInput;
+    },
   },
   watch: {
     productsListInCart: {
@@ -96,9 +100,9 @@ export default {
 <template>
 <div class="app">
   <div class="up">
-    <TheHeader v-bind:setIsShowProductsCart="setIsShowProductsCart" v-bind:totalProductsCountInCart="totalProductsCountInCart"></TheHeader>
+    <TheHeader v-bind:setIsShowProductsCart="setIsShowProductsCart" v-bind:totalProductsCountInCart="totalProductsCountInCart" v-bind:valueInSearchInput="valueInSearchInput" v-bind:setValueInSearchInput="setValueInSearchInput"></TheHeader>
     <div class="page">
-      <CatalogView v-bind:addProductInCart="addProductInCart"></CatalogView>
+      <CatalogView v-bind:addProductInCart="addProductInCart" v-bind:valueInSearchInput="valueInSearchInput"></CatalogView>
     </div>
   </div>
   <TheFooter></TheFooter>

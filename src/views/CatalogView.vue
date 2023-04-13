@@ -14,6 +14,9 @@ export default {
         addProductInCart: {
             type: Function,
         },
+        valueInSearchInput: {
+            type: String,
+        },
     },
     data() {
         return {
@@ -88,6 +91,9 @@ export default {
         },
     },
     computed: {
+        valueInSearchInputLowerCase () {
+            return this.valueInSearchInput.toLowerCase();
+        },
         productsDataFiltered () {
             return [...this.productsData].filter(product => {
                 for (let i=0; i < this.filterOptions.length; i++) {
@@ -99,8 +105,13 @@ export default {
                 return true
             })
         },
-        productsDataFilteredAndSorted () {
-            return [...this.productsDataFiltered].sort((product1, product2) => {
+        productsDataFilteredAndSearched () {
+            return [...this.productsDataFiltered].filter(product => {
+                return product.name.toLowerCase().includes(this.valueInSearchInputLowerCase)
+            })
+        },
+        productsDataFilteredAndSearchedAndSorted () {
+            return [...this.productsDataFilteredAndSearched].sort((product1, product2) => {
                 const directionSort = this.selectedSort.isReversed ? -1 : 1;
 
                 return directionSort * (product1[this.selectedSort.value] - product2[this.selectedSort.value])
@@ -135,11 +146,11 @@ export default {
         <BaseCloseField class="catalogView__closeFieldForFilter" v-bind:isShowCloseField="isShowProductsFilter" v-bind:setIsShowCloseField="setIsShowProductsFilter" v-bind:transitionDuration="0.5" v-bind:transitionDelay="0.1"></BaseCloseField>
         <div class="catalogView__main">
             <div class="catalogView__mainHead">
-                <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSorted.length }} товаров</p>
+                <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSearchedAndSorted.length }} товаров</p>
                 <p class="catalogView__mainHeadFilterOpeningBtn" @click="(event) => setIsShowProductsFilter(true)">Фильтры</p>
                 <ProductsSort v-bind:selectedSort="selectedSort" v-bind:sortOptions="sortOptions" v-bind:selectSortOption="selectSortOption" v-bind:isShowSortOptions="isShowSortOptions" v-bind:setIsShowSortOptions="setIsShowSortOptions"></ProductsSort>
             </div>
-            <ProductsList v-if="!isProductsDataLoading" v-bind:productsData="productsDataFilteredAndSorted" v-bind:addProductInCart="addProductInCart"></ProductsList>
+            <ProductsList v-if="!isProductsDataLoading" v-bind:productsData="productsDataFilteredAndSearchedAndSorted" v-bind:addProductInCart="addProductInCart"></ProductsList>
             <BaseLoader v-else></BaseLoader>
         </div>
     </div>
