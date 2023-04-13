@@ -29,14 +29,19 @@ export default {
 <style scoped>
 .productsListItem {
     position: relative;
-    width: 278px;
+    width: 18.7%;
     padding: 16px 0;
 }
 
 @media (max-width: 1301px) {
     .productsListItem {
-        width: 156px;
         padding: 24px 0 34px;
+    }
+}
+
+@media (max-width: 601px) {
+    .productsListItem {
+        width: 47.7%;
     }
 }
 
