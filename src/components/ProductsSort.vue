@@ -37,7 +37,10 @@ export default {
             <p class="productsSort__listItemText">{{ sortOption.name }}</p>
         </div>
     </div>
-    <BaseCloseField v-bind:isShowCloseField="isShowSortOptions" v-bind:setIsShowCloseField="setIsShowSortOptions"></BaseCloseField>
+    <BaseCloseField 
+        v-bind:isShowCloseField="isShowSortOptions" 
+        v-bind:setIsShowCloseField="setIsShowSortOptions"
+    ></BaseCloseField>
 </div>
 </template>
 

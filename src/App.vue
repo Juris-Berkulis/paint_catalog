@@ -100,14 +100,35 @@ export default {
 <template>
 <div class="app">
   <div class="up">
-    <TheHeader v-bind:setIsShowProductsCart="setIsShowProductsCart" v-bind:totalProductsCountInCart="totalProductsCountInCart" v-bind:valueInSearchInput="valueInSearchInput" v-bind:setValueInSearchInput="setValueInSearchInput"></TheHeader>
+    <TheHeader 
+      v-bind:setIsShowProductsCart="setIsShowProductsCart" 
+      v-bind:totalProductsCountInCart="totalProductsCountInCart" 
+      v-bind:valueInSearchInput="valueInSearchInput" 
+      v-bind:setValueInSearchInput="setValueInSearchInput"
+    ></TheHeader>
     <div class="page">
-      <CatalogView v-bind:addProductInCart="addProductInCart" v-bind:valueInSearchInput="valueInSearchInput"></CatalogView>
+      <CatalogView 
+        v-bind:addProductInCart="addProductInCart" 
+        v-bind:valueInSearchInput="valueInSearchInput"
+      ></CatalogView>
     </div>
   </div>
   <TheFooter></TheFooter>
-  <ProductsCart v-bind:isShowProductsCart="isShowProductsCart" v-bind:setIsShowProductsCart="setIsShowProductsCart" v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn" v-bind:clearProductsListInCart="clearProductsListInCart"></ProductsCart>
-  <BaseCloseField v-bind:isShowCloseField="isShowProductsCart" v-bind:setIsShowCloseField="setIsShowProductsCart" v-bind:transitionDuration="0.5" v-bind:transitionDelay="0.1"></BaseCloseField>
+  <ProductsCart 
+    v-bind:isShowProductsCart="isShowProductsCart" 
+    v-bind:setIsShowProductsCart="setIsShowProductsCart" 
+    v-bind:productsListInCart="productsListInCart" 
+    v-bind:increaseProductsCountInCart="increaseProductsCountInCart" 
+    v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" 
+    v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn" 
+    v-bind:clearProductsListInCart="clearProductsListInCart"
+  ></ProductsCart>
+  <BaseCloseField 
+    v-bind:isShowCloseField="isShowProductsCart" 
+    v-bind:setIsShowCloseField="setIsShowProductsCart" 
+    v-bind:transitionDuration="0.5" 
+    v-bind:transitionDelay="0.1"
+  ></BaseCloseField>
 </div>
 </template>
 

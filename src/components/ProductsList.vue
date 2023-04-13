@@ -19,7 +19,12 @@ export default {
 <template>
 <div class="productsList">
     <div class="productsList__filled" v-if="productsData.length">
-        <ProductsListItem v-for="product in productsData" v-bind:product="product" :key="product.id" v-bind:addProductInCart="addProductInCart"></ProductsListItem>
+        <ProductsListItem 
+            v-for="product in productsData" 
+            :key="product.id" 
+            v-bind:product="product" 
+            v-bind:addProductInCart="addProductInCart"
+        ></ProductsListItem>
     </div>
     <p class="productsList__emptyText" v-else>Список товаров пуст</p>
 </div>

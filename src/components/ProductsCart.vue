@@ -73,7 +73,13 @@ export default {
             <p class="productsCart__additionallyCount">{{ totalProductsCountInCart }} товаров</p>
             <button class="productsCart__additionallyDelBtn" :disabled="!productsListInCart.length" @click="(event) => clearProductsListInCart()">Очистить список</button>
         </div>
-        <ProductsCartList v-if="productsListInCart.length" v-bind:productsListInCart="productsListInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"></ProductsCartList>
+        <ProductsCartList 
+            v-if="productsListInCart.length" 
+            v-bind:productsListInCart="productsListInCart" 
+            v-bind:increaseProductsCountInCart="increaseProductsCountInCart" 
+            v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" 
+            v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"
+        ></ProductsCartList>
         <p class="productsCart__cartIsEmptyText" v-else>Корзина пуста</p>
     </div>
     <div class="productsCart__bottom">

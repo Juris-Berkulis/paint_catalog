@@ -64,7 +64,10 @@ export default {
         </div>
         <div class="header__btnsPanel">
             <div class="header__btn">
-                <ProductsSearch v-bind:valueInSearchInput="valueInSearchInput" v-bind:setValueInSearchInput="setValueInSearchInput"></ProductsSearch>
+                <ProductsSearch 
+                    v-bind:valueInSearchInput="valueInSearchInput" 
+                    v-bind:setValueInSearchInput="setValueInSearchInput"
+                ></ProductsSearch>
             </div>
             <div class="header__btn">
                 <IconProfile></IconProfile>
@@ -74,7 +77,13 @@ export default {
             </div>
         </div>
     </div>
-    <BaseCloseField class="catalogView__closeFieldForMenu" v-bind:isShowCloseField="isShowMobileMenu" v-bind:setIsShowCloseField="setIsShowMobileMenu" v-bind:transitionDuration="1" v-bind:transitionDelay="0.1"></BaseCloseField>
+    <BaseCloseField 
+        class="catalogView__closeFieldForMenu" 
+        v-bind:isShowCloseField="isShowMobileMenu" 
+        v-bind:setIsShowCloseField="setIsShowMobileMenu" 
+        v-bind:transitionDuration="1" 
+        v-bind:transitionDelay="0.1"
+    ></BaseCloseField>
     <div class="header__btn header__btn__cart" @click="(event) => setIsShowProductsCart(true)">{{ totalProductsCountInCart }}</div>
 </div>
 </template>

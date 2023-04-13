@@ -24,7 +24,14 @@ export default {
 
 <template>
 <div class="productsCartList">
-    <ProductsCartListItem v-for="productInCart in productsListInCart" :key="productInCart.id" v-bind:productInCart="productInCart" v-bind:increaseProductsCountInCart="increaseProductsCountInCart" v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"></ProductsCartListItem>
+    <ProductsCartListItem 
+        v-for="productInCart in productsListInCart" 
+        :key="productInCart.id" 
+        v-bind:productInCart="productInCart" 
+        v-bind:increaseProductsCountInCart="increaseProductsCountInCart" 
+        v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" 
+        v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"
+    ></ProductsCartListItem>
 </div>
 </template>
 

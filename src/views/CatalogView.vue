@@ -127,7 +127,13 @@ export default {
 <template>
 <div class="catalogView">
     <div class="catalogView__upperline"></div>
-    <BaseSlider v-bind:sliderData="sliderData" v-bind:currentPage="currentPage" v-bind:setCurrentPage="setCurrentPage" v-bind:previousPage="previousPage" v-bind:nextPage="nextPage">
+    <BaseSlider 
+        v-bind:sliderData="sliderData" 
+        v-bind:currentPage="currentPage" 
+        v-bind:setCurrentPage="setCurrentPage" 
+        v-bind:previousPage="previousPage" 
+        v-bind:nextPage="nextPage"
+    >
         <template v-slot:category>
             <div class="category">
                 <p class="category__text">Главная</p>
@@ -141,17 +147,32 @@ export default {
     <div class="catalogView__root">
         <div :class="['catalogView__filterWrapper', {'catalogView__filterWrapper__showForMobile': isShowProductsFilter}]">
             <div class="catalogView__filterLine" @click="(event) => setIsShowProductsFilter(false)"></div>
-            <ProductsFilter v-bind:filterOptions="filterOptions" v-bind:setFilterOptions="setFilterOptions"></ProductsFilter>
+            <ProductsFilter 
+                v-bind:filterOptions="filterOptions" 
+                v-bind:setFilterOptions="setFilterOptions"
+            ></ProductsFilter>
         </div>
         <BaseCloseField class="catalogView__closeFieldForFilter" v-bind:isShowCloseField="isShowProductsFilter" v-bind:setIsShowCloseField="setIsShowProductsFilter" v-bind:transitionDuration="0.5" v-bind:transitionDelay="0.1"></BaseCloseField>
         <div class="catalogView__main">
             <div class="catalogView__mainHead">
                 <p class="catalogView__mainHeadCount">{{ productsDataFilteredAndSearchedAndSorted.length }} товаров</p>
                 <p class="catalogView__mainHeadFilterOpeningBtn" @click="(event) => setIsShowProductsFilter(true)">Фильтры</p>
-                <ProductsSort v-bind:selectedSort="selectedSort" v-bind:sortOptions="sortOptions" v-bind:selectSortOption="selectSortOption" v-bind:isShowSortOptions="isShowSortOptions" v-bind:setIsShowSortOptions="setIsShowSortOptions"></ProductsSort>
+                <ProductsSort 
+                    v-bind:selectedSort="selectedSort" 
+                    v-bind:sortOptions="sortOptions" 
+                    v-bind:selectSortOption="selectSortOption" 
+                    v-bind:isShowSortOptions="isShowSortOptions" 
+                    v-bind:setIsShowSortOptions="setIsShowSortOptions"
+                ></ProductsSort>
             </div>
-            <ProductsList v-if="!isProductsDataLoading" v-bind:productsData="productsDataFilteredAndSearchedAndSorted" v-bind:addProductInCart="addProductInCart"></ProductsList>
-            <BaseLoader v-else></BaseLoader>
+            <ProductsList 
+                v-if="!isProductsDataLoading" 
+                v-bind:productsData="productsDataFilteredAndSearchedAndSorted" 
+                v-bind:addProductInCart="addProductInCart"
+            ></ProductsList>
+            <BaseLoader 
+                v-else
+            ></BaseLoader>
         </div>
     </div>
 </div>

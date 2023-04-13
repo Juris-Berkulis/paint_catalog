@@ -26,8 +26,17 @@ export default {
 
 <template>
 <form class="productsSearch" @submit.prevent="(event) => closeInput()" action="">
-    <input class="productsSearch__input" :value="valueInSearchInput" @input="(event) => setValueInSearchInput(event.target.value)" v-if="isShowInput" placeholder="Название товара" type="text">
-    <IconSearch v-bind:search="setIsShowInput"></IconSearch>
+    <input 
+        class="productsSearch__input" 
+        :value="valueInSearchInput" 
+        @input="(event) => setValueInSearchInput(event.target.value)" 
+        v-if="isShowInput" 
+        placeholder="Название товара" 
+        type="text"
+    >
+    <IconSearch 
+        v-bind:search="setIsShowInput"
+    ></IconSearch>
 </form>
 </template>
 
