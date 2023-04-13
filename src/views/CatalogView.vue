@@ -209,6 +209,12 @@ export default {
     }
 }
 
+@media ((max-width: 1301px) and (max-height: 350px)) {
+    .catalogView__filterWrapper {
+        padding: 12px 24px 0;
+    }
+}
+
 @media (max-width: 1301px) {
     .catalogView__filterWrapper__showForMobile {
         transform: translateY(-100%);
