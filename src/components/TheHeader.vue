@@ -179,7 +179,7 @@ export default {
         width: 100%;
         flex-direction: column;
         justify-content: flex-start;
-        padding: 40px;
+        padding: 10px;
         background-color: #ffffff;
         transform: translateX(0);
         transition: transform 1s linear 0.1s;
@@ -221,6 +221,8 @@ export default {
         flex-grow: 0;
         margin-right: 0;
         margin-bottom: 40px;
+        padding: 0 20px;
+        overflow-y: auto;
     }
 }
 

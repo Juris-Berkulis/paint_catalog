@@ -37,6 +37,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .productsSearch__input {
@@ -50,5 +52,16 @@ export default {
     outline: 2px solid #7BB899;
     transform: translate(0, -50%);
     z-index: 2;
+}
+
+@media (max-width: 1301px) {
+    .productsSearch__input {
+        top: auto;
+        right: auto;
+        bottom: calc(100% + 10px);
+        left: calc(150% + 24px);
+        transform: translate(-50%, 0);
+        z-index: 4;
+    }
 }
 </style>
