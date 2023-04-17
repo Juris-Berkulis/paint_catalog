@@ -6,20 +6,15 @@ export default {
     components: {
         ProductsSearch,
     },
-    props: {
-        valueInSearchInput: {
-            type: String,
-        },
-        setValueInSearchInput: {
-            type: Function,
-        },
-    },
     data() {
         return {
             isShowMobileMenu: false,
         }
     },
     computed: {
+        ...mapState({
+            valueInSearchInput: (state) => state.moduleProductsSearch.valueInSearchInput,
+        }),
         ...mapGetters({
             totalProductsCountInCart: 'moduleProductsCart/totalProductsCountInCart',
         }),
@@ -27,6 +22,7 @@ export default {
     methods: {
         ...mapActions({
             setIsShowProductsCart: 'moduleProductsCart/setIsShowProductsCart',
+            setValueInSearchInput: 'moduleProductsSearch/setValueInSearchInput',
         }),
         setIsShowMobileMenu (boolean) {
             this.isShowMobileMenu = boolean;

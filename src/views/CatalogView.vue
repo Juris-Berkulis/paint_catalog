@@ -1,4 +1,5 @@
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 import ProductsFilter from '../components/ProductsFilter.vue';
 import ProductsSort from '../components/ProductsSort.vue';
 import ProductsList from '../components/ProductsList.vue';
@@ -9,11 +10,6 @@ export default {
         ProductsList, 
         ProductsSort,
         ProductsFilter,
-    },
-    props: {
-        valueInSearchInput: {
-            type: String,
-        },
     },
     data() {
         return {
@@ -88,6 +84,9 @@ export default {
         },
     },
     computed: {
+        ...mapState({
+            valueInSearchInput: (state) => state.moduleProductsSearch.valueInSearchInput,
+        }),
         valueInSearchInputLowerCase () {
             return this.valueInSearchInput.toLowerCase();
         },

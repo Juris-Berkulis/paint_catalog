@@ -12,11 +12,6 @@ export default {
     TheFooter,
     ProductsCart,
   },
-  data() {
-    return {
-      valueInSearchInput: '',
-    }
-  },
   computed: {
     ...mapState({
       isShowProductsCart: (state) => state.moduleProductsCart.isShowProductsCart,
@@ -28,9 +23,6 @@ export default {
       setIsShowProductsCart: 'moduleProductsCart/setIsShowProductsCart',
       setProductsListInCart: 'moduleProductsCart/setProductsListInCart',
     }),
-    setValueInSearchInput (valueInSearchInput) {
-      this.valueInSearchInput = valueInSearchInput;
-    },
   },
   watch: {
     productsListInCart: {
@@ -54,12 +46,9 @@ export default {
 <div class="app">
   <div class="up">
     <TheHeader 
-      v-bind:valueInSearchInput="valueInSearchInput" 
-      v-bind:setValueInSearchInput="setValueInSearchInput"
     ></TheHeader>
     <div class="page">
       <CatalogView 
-        v-bind:valueInSearchInput="valueInSearchInput"
       ></CatalogView>
     </div>
   </div>
