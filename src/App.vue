@@ -1,9 +1,9 @@
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 import CatalogView from './views/CatalogView.vue';
 import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
 import ProductsCart from './components/ProductsCart.vue';
-import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 
 export default {
   components: {
@@ -45,16 +45,13 @@ export default {
 <template>
 <div class="app">
   <div class="up">
-    <TheHeader 
-    ></TheHeader>
+    <TheHeader></TheHeader>
     <div class="page">
-      <CatalogView 
-      ></CatalogView>
+      <CatalogView></CatalogView>
     </div>
   </div>
   <TheFooter></TheFooter>
-  <ProductsCart 
-  ></ProductsCart>
+  <ProductsCart></ProductsCart>
   <BaseCloseField 
     v-bind:isShowCloseField="isShowProductsCart" 
     v-bind:setIsShowCloseField="setIsShowProductsCart" 
