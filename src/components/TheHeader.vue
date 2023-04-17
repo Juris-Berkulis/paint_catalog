@@ -1,4 +1,5 @@
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 import ProductsSearch from './ProductsSearch.vue';
 
 export default {
@@ -6,12 +7,6 @@ export default {
         ProductsSearch,
     },
     props: {
-        setIsShowProductsCart: {
-            type: Function,
-        },
-        totalProductsCountInCart: {
-            type: Number,
-        },
         valueInSearchInput: {
             type: String,
         },
@@ -24,7 +19,15 @@ export default {
             isShowMobileMenu: false,
         }
     },
+    computed: {
+        ...mapGetters({
+            totalProductsCountInCart: 'moduleProductsCart/totalProductsCountInCart',
+        }),
+    },
     methods: {
+        ...mapActions({
+            setIsShowProductsCart: 'moduleProductsCart/setIsShowProductsCart',
+        }),
         setIsShowMobileMenu (boolean) {
             this.isShowMobileMenu = boolean;
         }

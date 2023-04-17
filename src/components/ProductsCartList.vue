@@ -1,23 +1,15 @@
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 import ProductsCartListItem from './ProductsCartListItem.vue';
 
 export default {
     components: {
         ProductsCartListItem,
     },
-    props: {
-        productsListInCart: {
-            type: Array,
-        },
-        increaseProductsCountInCart: {
-            type: Function,
-        },
-        decreaseProductsCountInCart: {
-            type: Function,
-        },
-        markProductForRemovalOrReturn: {
-            type: Function,
-        },
+    computed: {
+        ...mapState({
+            productsListInCart: (state) => state.moduleProductsCart.productsListInCart,
+        }),
     },
 }
 </script>
@@ -28,9 +20,6 @@ export default {
         v-for="productInCart in productsListInCart" 
         :key="productInCart.id" 
         v-bind:productInCart="productInCart" 
-        v-bind:increaseProductsCountInCart="increaseProductsCountInCart" 
-        v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" 
-        v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"
     ></ProductsCartListItem>
 </div>
 </template>

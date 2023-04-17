@@ -6,9 +6,6 @@ export default {
         productsData: {
             type: Array,
         },
-        addProductInCart: {
-            type: Function,
-        },
     },
     components: { 
         ProductsListItem, 
@@ -23,7 +20,6 @@ export default {
             v-for="product in productsData" 
             :key="product.id" 
             v-bind:product="product" 
-            v-bind:addProductInCart="addProductInCart"
         ></ProductsListItem>
     </div>
     <p class="productsList__emptyText" v-else>Список товаров пуст</p>

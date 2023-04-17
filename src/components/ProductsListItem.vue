@@ -1,12 +1,16 @@
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
+
 export default {
     props: {
         product: {
             type: Object,
         },
-        addProductInCart: {
-            type: Function,
-        },
+    },
+    methods: {
+        ...mapActions({
+            addProductInCart: 'moduleProductsCart/addProductInCart',
+        }),
     },
 }
 </script>

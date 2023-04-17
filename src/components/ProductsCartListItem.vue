@@ -1,17 +1,10 @@
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
+
 export default {
     props: {
         productInCart: {
             type: Object,
-        },
-        increaseProductsCountInCart: {
-            type: Function,
-        },
-        decreaseProductsCountInCart: {
-            type: Function,
-        },
-        markProductForRemovalOrReturn: {
-            type: Function,
         },
     },
     computed: {
@@ -19,6 +12,13 @@ export default {
             return this.productInCart.isMarkProductForRemoval
         },
     },
+    methods: {
+        ...mapActions({
+            increaseProductsCountInCart: 'moduleProductsCart/increaseProductsCountInCart',
+            decreaseProductsCountInCart: 'moduleProductsCart/decreaseProductsCountInCart',
+            markProductForRemovalOrReturn: 'moduleProductsCart/markProductForRemovalOrReturn',
+        }),
+    }
 }
 </script>
 
@@ -45,10 +45,10 @@ export default {
                 <div :class="['productsCartListItem__panelBtnIconVertical', {'productsCartListItem__panelBtnIconVertical__forRemoval': isMarkProductForRemoval}]"></div>
             </button>
         </div>
-        <div class="productsCartListItem__productDelBtn productsCartListItem__productDelBtn__delete" v-if="!isMarkProductForRemoval" @click="(event) => markProductForRemovalOrReturn(productInCart, true)">
+        <div class="productsCartListItem__productDelBtn productsCartListItem__productDelBtn__delete" v-if="!isMarkProductForRemoval" @click="(event) => markProductForRemovalOrReturn({product: productInCart, isMarkProductForRemoval: true})">
             <IconCross></IconCross>
         </div>
-        <div class="productsCartListItem__productDelBtn productsCartListItem__productDelBtn__return" v-else @click="(event) => markProductForRemovalOrReturn(productInCart, false)">
+        <div class="productsCartListItem__productDelBtn productsCartListItem__productDelBtn__return" v-else @click="(event) => markProductForRemovalOrReturn({product: productInCart, isMarkProductForRemoval: false})">
             <IconReturn></IconReturn>
         </div>
     </div>

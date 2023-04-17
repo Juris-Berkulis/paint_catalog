@@ -11,9 +11,6 @@ export default {
         ProductsFilter,
     },
     props: {
-        addProductInCart: {
-            type: Function,
-        },
         valueInSearchInput: {
             type: String,
         },
@@ -168,7 +165,6 @@ export default {
             <ProductsList 
                 v-if="!isProductsDataLoading" 
                 v-bind:productsData="productsDataFilteredAndSearchedAndSorted" 
-                v-bind:addProductInCart="addProductInCart"
             ></ProductsList>
             <BaseLoader 
                 v-else

@@ -1,34 +1,16 @@
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 import ProductsCartList from './ProductsCartList.vue';
 
 export default {
     components: {
         ProductsCartList,
     },
-    props: {
-        isShowProductsCart: {
-            type: Boolean,
-        },
-        setIsShowProductsCart: {
-            type: Function,
-        },
-        productsListInCart: {
-            type: Array,
-        },
-        increaseProductsCountInCart: {
-            type: Function,
-        },
-        decreaseProductsCountInCart: {
-            type: Function,
-        },
-        markProductForRemovalOrReturn: {
-            type: Function,
-        },
-        clearProductsListInCart: {
-            type: Function,
-        },
-    },
     methods: {
+        ...mapActions({
+            setIsShowProductsCart: 'moduleProductsCart/setIsShowProductsCart',
+            setProductsListInCart: 'moduleProductsCart/setProductsListInCart',
+        }),
         placeOrder () {
             const productsListForOrder = this.productsListInCart.filter(product => {
                 return !product.isMarkProductForRemoval
@@ -44,16 +26,21 @@ export default {
                 clearTimeout(timerId);
             }, 0);
         },
+        clearProductsListInCart () {
+            this.setProductsListInCart([]);
+        },
     },
     computed: {
+        ...mapState({
+            isShowProductsCart: (state) => state.moduleProductsCart.isShowProductsCart,
+            productsListInCart: (state) => state.moduleProductsCart.productsListInCart,
+        }),
+        ...mapGetters({
+            totalProductsCountInCart: 'moduleProductsCart/totalProductsCountInCart',
+        }),
         totalProductsSumInCart () {
             return this.productsListInCart.reduce((acc, currentProduct) => {
                 return !currentProduct.isMarkProductForRemoval ? acc + currentProduct.price * currentProduct.count : acc
-            }, 0)
-        },
-        totalProductsCountInCart () {
-            return this.productsListInCart.reduce((acc, currentProduct) => {
-                return !currentProduct.isMarkProductForRemoval ? acc + currentProduct.count : acc
             }, 0)
         },
     },
@@ -75,10 +62,6 @@ export default {
         </div>
         <ProductsCartList 
             v-if="productsListInCart.length" 
-            v-bind:productsListInCart="productsListInCart" 
-            v-bind:increaseProductsCountInCart="increaseProductsCountInCart" 
-            v-bind:decreaseProductsCountInCart="decreaseProductsCountInCart" 
-            v-bind:markProductForRemovalOrReturn="markProductForRemovalOrReturn"
         ></ProductsCartList>
         <p class="productsCart__cartIsEmptyText" v-else>Корзина пуста</p>
     </div>
